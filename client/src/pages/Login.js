@@ -4,7 +4,8 @@ import BodyContext from "../utils/BodyContext";
 
 const Login = () => {
   const bodyContext = useContext(BodyContext);
-  const handleSocialLogin = () => {
+  const handleSocialLogin = (data) => {
+    console.log(data._profile);
     bodyContext.setAuth(true);
   };
 
