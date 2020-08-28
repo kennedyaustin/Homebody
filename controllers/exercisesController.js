@@ -1,6 +1,5 @@
 const db = require("../models/exercises");
 
-// Defining methods for the booksController
 module.exports = {
   findAll: function(req, res) {
     db
@@ -8,15 +7,15 @@ module.exports = {
       .then(dbModel => res.json(dbModel))
       .catch(err => res.status(422).json(err));
   },
-  findById: function(req, res) {
+  findByTarget: function(req, res) {
     db
-      .findById(req.params.id)
+      .find({},{target: req.params.target}).limit(req.params.num)
       .then(dbModel => res.json(dbModel))
       .catch(err => res.status(422).json(err));
   },
-  create: function(req, res) {
+  findByTargets: function(req, res) {
     db
-      .create(req.body)
+      .find({ target: {$in: [req.body]}})
       .then(dbModel => res.json(dbModel))
       .catch(err => res.status(422).json(err));
   },
