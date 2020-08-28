@@ -9,7 +9,6 @@ const routes = require("./routes");
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 
-mongoose.connect(process.env.MONGODB_URI || "mongodb://localhost/homeBodyFitness", { useNewUrlParser: true, useUnifiedTopology: true });
 
 // Serve up static assets (usually on heroku)
 if (process.env.NODE_ENV === "production") {
@@ -20,6 +19,8 @@ if (process.env.NODE_ENV === "production") {
 }
 
 app.use(routes)
+
+mongoose.connect(process.env.MONGODB_URI || "mongodb://localhost/homeBodyFitness", { useNewUrlParser: true, useUnifiedTopology: true });
 
 app.listen(PORT, function () {
   console.log(`🌎 ==> API server now on port ${PORT}!`);
