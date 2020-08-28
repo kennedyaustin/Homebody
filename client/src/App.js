@@ -1,7 +1,7 @@
 import React from 'react';
 import logo from './logo.svg';
 import './App.css';
-import MuscleBubble from './components/MuscleBubble/MuscleBubble'
+import MuscleChoice from './components/MuscleChoice/MuscleChoiceBubble'
 
 function App() {
   return (
@@ -11,7 +11,6 @@ function App() {
         <p>
           Edit <code>src/App.js</code> and save to reload.
         </p>
-        <div><MuscleBubble /></div>
         <a
           className="App-link"
           href="https://reactjs.org"
@@ -21,6 +20,12 @@ function App() {
           Learn React
         </a>
       </header>
+      <div className= "container">
+        <div><MuscleChoice /></div>
+        <div><MuscleChoice /></div>
+        <div><MuscleChoice /></div>
+        <div><MuscleChoice /></div>
+      </div>
     </div>
   );
 }
