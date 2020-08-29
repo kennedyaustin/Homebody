@@ -2,13 +2,22 @@ import React, { useContext } from "react";
 import SocialButton from "../components/SocialButton";
 import BodyContext from "../utils/BodyContext";
 import Cookies from "js-cookie";
+import MuscleType from '../components/MuscleChoice/MuscleChoiceBubble'
+import API from '../utils/API'
 
 const Login = () => {
   const bodyContext = useContext(BodyContext);
 
   const handleSocialLogin = (data) => {
-    bodyContext.setAuth(true);
-    Cookies.set("user", "login", 7);
+
+    API.loginUser(data._profile).then((resp) => {
+      bodyContext.setUser(resp.data)
+      bodyContext.setAuth(true);
+      Cookies.set("user", resp.data.email, {expires: 7});
+    }).catch(err => {
+      console.log("login failed")
+    })
+    
   };
 
   const handleSocialLoginFailure = (data) => {

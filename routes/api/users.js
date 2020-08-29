@@ -4,7 +4,7 @@ const usersController = require("../../controllers/usersController");
 // Get and Post for "/api/books"
 router.route("/")
   .get(usersController.findAll)
-  .post(usersController.create);
+  .post(usersController.login);
 
 // Get Put and Delete for "/api/books/:id"
 router

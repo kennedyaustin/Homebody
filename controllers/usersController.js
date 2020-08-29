@@ -9,15 +9,33 @@ module.exports = {
   },
   findById: function(req, res) {
     db
-      .findById(req.params.id)
+      .findOne({email: req.params.id})
       .then(dbModel => res.json(dbModel))
       .catch(err => res.status(422).json(err));
   },
-  create: function(req, res) {
+  login: function(req, res) {
+    console.log(req.body)
     db
-      .create(req.body)
-      .then(dbModel => res.json(dbModel))
-      .catch(err => res.status(422).json(err));
+      .findOne({
+        email: req.body.email
+      }).then((dbModel) => {
+        if(!dbModel){
+          db.create({
+            firstName: req.body.firstName,
+            lastName: req.body.lastName,
+            email: req.body.email,
+            profileImage: req.body.profilePicURL
+          }).then(dbUser => {
+            res.send(dbUser)
+          }).catch(err => {
+            res.json(err)
+          })
+        }else{
+          res.send(dbModel)
+        }
+      }).catch(err => {
+        res.json(err)
+      })
   },
   update: function(req, res) {
     db

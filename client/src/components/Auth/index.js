@@ -2,19 +2,27 @@ import React, { useContext, useEffect } from "react";
 import BodyContext from "../../utils/BodyContext";
 import Login from "../../pages/Login";
 import Cookies from "js-cookie";
+import API from "../../utils/API";
 
 const Auth = (props) => {
   const bodyContext = useContext(BodyContext);
 
   useEffect(() => {
     const userCookie = Cookies.get("user");
+    console.log(bodyContext)
 
     if (userCookie) {
-      bodyContext.setAuth(true);
+     
+      API.getUser(userCookie)
+      .then(resp => {
+        console.log(`-----------------------${resp}`)
+        bodyContext.setUser(resp)
+        bodyContext.setAuth(true);
+      })
     }
   }, []);
 
-  return <>{bodyContext.authState ? { ...props.children } : <Login />}</>;
+  return <>{bodyContext.authState ? props.children  : <Login />}</>;
 };
 
 export default Auth;
