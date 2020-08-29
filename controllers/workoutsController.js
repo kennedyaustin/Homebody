@@ -1,6 +1,5 @@
 const db = require("../models/workouts");
 
-// Defining methods for the booksController
 module.exports = {
   findAll: function(req, res) {
     db
@@ -14,7 +13,7 @@ module.exports = {
       .then(dbModel => res.json(dbModel))
       .catch(err => res.status(422).json(err));
   },
-  create: function(req, res) {
+  createWorkout: function(req, res) {
     db
       .create(req.body)
       .then(dbModel => res.json(dbModel))

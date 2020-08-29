@@ -4,7 +4,7 @@ const workoutsController = require("../../controllers/workoutsController");
 // Get and Post for "/api/books"
 router.route("/")
   .get(workoutsController.findAll)
-  .post(workoutsController.create);
+  //.post(workoutsController.create); // Causes unknown error on terminal
 
 // Get Put and Delete for "/api/books/:id"
 router

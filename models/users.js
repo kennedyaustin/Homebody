@@ -7,7 +7,7 @@ const usersSchema = new Schema({
         required: true,
         unique: true
     },
-
+ 
     email: {
         type: String,
         required: true,
@@ -20,7 +20,8 @@ const usersSchema = new Schema({
     },
 
     savedWorkouts: [{
-        type: Array
+        type: Schema.Types.ObjectId,
+        ref: "Workouts"
         
     }]
 
