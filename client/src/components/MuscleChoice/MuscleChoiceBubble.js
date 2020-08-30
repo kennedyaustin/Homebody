@@ -16,7 +16,7 @@ const Card = ({target, value, selected}) => {
         } else {
           setTargets([...targets], targets[i].selected = true)
         }
-        console.log(targets)
+        console.log(targets[i].selected)
       }
     }
   }  
