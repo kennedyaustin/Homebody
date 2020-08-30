@@ -1,37 +1,10 @@
 import React, { useContext, useState } from "react";
 import BodyContext from "../utils/BodyContext";
 import MuscleType from "../components/MuscleChoice/MuscleChoiceBubble";
-import MuscleTargetCard from "../components/MuscleTargetCard/MuscleTargetCard"
 
 const Home = () => {
-  const bodyContext = useContext(BodyContext);
-  
-  const [targets, setTargets] = useState([
-    {
-      name: 'Push',
-      selected: false
-    },
-    {
-      name: 'Pull',
-      selected: false
-    },
-    {
-      name: 'Legs',
-      selected: false
-    },
-    {
-      name: 'Core',
-      selected: false
-    }
-  ])
-
-  const handleButtonClick = () => {
-    console.log('hi')
-  }
-
-  console.log(bodyContext.userState)
-
-  
+  //const bodyContext = useContext(BodyContext);
+  const {userState, setUserState, targets, setTargets} = useContext(BodyContext)
 
   return (
     <div className="container-fluid">
@@ -40,9 +13,11 @@ const Home = () => {
         {targets.map(t => 
           (
             <div className="col-6 col-md-3 ">
-              <MuscleTargetCard
+              <MuscleType
               key={t.name}
               target={t.name}
+              value={t.name}
+              selected={t.selected}
               />
             </div>
           )
