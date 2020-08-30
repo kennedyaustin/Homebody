@@ -25,7 +25,7 @@ const Login = () => {
   };
   return (
     <div>
-      <h2 className="text-center">Sign In</h2>
+      <h2 className="text-center" style={{color: 'white'}}>Sign In</h2>
       <SocialButton
         provider="google"
         appId="655422208019-cq9d7c5d7rrjpuh0ucqjfd6cu3rp7e74.apps.googleusercontent.com"
