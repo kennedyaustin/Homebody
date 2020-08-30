@@ -1,4 +1,5 @@
 .cardButtons {
+    width: 100%;
     display: flex;
     flex-wrap: wrap;
 }
@@ -10,19 +11,19 @@
     font-family: "Poppins", sans-serif;
     font-weight: 900;
     font-size: 18px;
-    padding: 10px 30px;
-    margin: 0;
+    padding: 15px 0;
     border: none;
     border-radius: 50px;
     cursor: pointer;
+
 }
 
 .clicked {
-    background: gray;
-    color: black;
+    background: #4d4d4d;
+    color: white;
 }
 
 .notClicked {
-    background: black;
+    background: #1c1c1e;
     color: white;
 }

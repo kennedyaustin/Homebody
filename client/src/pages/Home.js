@@ -12,7 +12,7 @@ const Home = () => {
 
         {targets.map(t => 
           (
-            <div className="col-6 col-md-3 ">
+            <div className="col-6 col-md-3 mt-4">
               <MuscleType
               key={t.name}
               target={t.name}
