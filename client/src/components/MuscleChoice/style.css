@@ -1,0 +1,28 @@
+.cardButtons {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.cardButtons div {
+    
+    text-align: center;
+    width: 100%;
+    font-family: "Poppins", sans-serif;
+    font-weight: 900;
+    font-size: 18px;
+    padding: 10px 30px;
+    margin: 0;
+    border: none;
+    border-radius: 50px;
+    cursor: pointer;
+}
+
+.clicked {
+    background: gray;
+    color: black;
+}
+
+.notClicked {
+    background: black;
+    color: white;
+}

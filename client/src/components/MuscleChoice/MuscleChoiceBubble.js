@@ -1,55 +1,45 @@
-import React, { useState } from "react";
-import { css } from "emotion";
+import React, { useState, useContext } from "react";
+import BodyContext from "../../utils/BodyContext";
+import './style.css'
 
-const Card = ({target}) => {
-  const [background, setBackground] = useState("black");
-  const [font, setFont] = useState("white");
+const Card = ({target, value, selected}) => {
+  
+  const {targets, setTargets} = useContext(BodyContext);
 
-  const setStyle= (background, font) => {
-    setBackground(background)
-    setFont(font)
-  }
-
-  const cardButtons = css`
-    display: flex;
-    flex-wrap: wrap;
-    div {
-      text-align: center;
-      width: 100%;
-      font-family: "Poppins", sans-serif;
-      font-weight: 900;
-      font-size: 18px;
-      padding: 10px 30px;
-      margin: 0;
-      border: none;
-      border-radius: 50px;
-      cursor: pointer;
+  const handleButtonClick = event => {
+    const buttonTarget = event.target.attributes.getNamedItem("value").value
+    console.log('Value: '+ buttonTarget)
+    for (let i = 0; i < 4; i++){
+      if (targets[i].name === buttonTarget){
+        if (targets[i].selected){
+          setTargets([...targets], targets[i].selected = false)
+        } else {
+          setTargets([...targets], targets[i].selected = true)
+        }
+        console.log(targets)
+      }
     }
-  `;
-
-  const muscleChoice = css`
-    color: ${font};
-    background-color: ${background};
-  `;
+  }  
 
   return (
 
     <div className= "container">
       <div className= "row">
         <div className= "col-12 col-md-8 col-lg-6 offset-lg-2 order-md-0 order-sm-1 order-1 my-4">
-          <div className={cardButtons}>
+          <div className='cardButtons '>
             <div
-            onClick= {() => {
-              setStyle("gray", "black")
-            }} 
-            className= {muscleChoice}>
+            value={value}
+            onClick= {
+              handleButtonClick  
+            } 
+            className={(selected ? 'clicked' : 'notClicked')}>
               {target}
             </div>
           </div>
         </div>
       </div>
     </div>
-
+    
   );
 };
 
