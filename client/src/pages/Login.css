@@ -1,38 +1,24 @@
-.navbar-custom {
-    background-color: #1a1a1a;
-    border-bottom: 1px solid rgb(54, 53, 53);
-}
-
-.profilePic {
-    width: 55px;
-    height: 55px;
-    border-radius: 50%;
-}
-
-.nameColor {
-    color: gray ;
-    font-weight: 500;
-}
-
 .logoHouse, .bicepLeft, .bicepRight {
     width: 100px;
     height: 100px;
 }
 
-.logoHouse {
-    position: relative;
+.logoHouseLogin {
+    position: absolute;
 }
 
-.bicepLeft {
+.bicepLeftLogin {
     position: absolute;
-    left: 16px;
-    animation: logo-flex infinite 4s linear;
+    animation: logo-flex infinite 4s ease-in-out;
 }
 
-.bicepRight {
+.bicepRightLogin {
     position: absolute;
-    left: 16px;
-    animation: logo-flex-reverse infinite 4s ease-out;
+    animation: logo-flex-reverse infinite 4s ease-in-out;
+}
+
+.textColor {
+    color: white;
 }
 
 /* use this animation for the left-bicep (right arm on screen) */

@@ -15,7 +15,7 @@ module.exports = {
   },
   findByTargets: function(req, res) {
     db
-      .find({ target: {$in: [req.body]}})
+      .find({ target: {$in: [...req.body]}})
       .then(dbModel => res.json(dbModel))
       .catch(err => res.status(422).json(err));
   },
