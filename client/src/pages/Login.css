@@ -1,60 +1,95 @@
-.logoHouse, .bicepLeft, .bicepRight {
-    width: 100px;
-    height: 100px;
+.logoHouse,
+.bicepLeft,
+.bicepRight {
+  width: 100px;
+  height: 100px;
 }
 
 .logoHouseLogin {
-    position: absolute;
+  position: absolute;
 }
 
 .bicepLeftLogin {
-    position: absolute;
-    animation: logo-flex infinite 4s ease-in-out;
+  position: absolute;
+  animation: logo-flex infinite 4s ease-in-out;
 }
 
 .bicepRightLogin {
-    position: absolute;
-    animation: logo-flex-reverse infinite 4s ease-in-out;
+  position: absolute;
+  animation: logo-flex-reverse infinite 4s ease-in-out;
 }
 
 .textColor {
-    color: white;
+  color: white;
+}
+
+.googleLogin {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: white;
+  color: black;
+  border-radius: 3px;
+  box-shadow: 0px 1px 6px -2px #888888;
+  padding: 8px;
+  height: 40px;
+  font-family: "Roboto", sans-serif;
+  font-size: 14px;
+  width: 205px;
+}
+
+.facebookLogin {
+  display: flex;
+  align-items: center;
+  color: white;
+  border-radius: 3px;
+  padding: 8px 8px 8px 20px;
+  height: 40px;
+  box-shadow: 1px 4px 6px -2px #888888;
+  font-family: "Roboto", sans-serif;
+  font-size: 14px;
+  width: 205px;
+  background-color: #1877f2;
+}
+
+.loginForm {
+  margin: 0 auto;
 }
 
 /* use this animation for the left-bicep (right arm on screen) */
 @keyframes logo-flex {
-    0% {
-        transform: rotate(0deg);
-    }
-    25% {
-        transform: rotate(4deg);
-    }
-    50% {
-        transform: rotate(0deg);
-    }
-    75% {
-        transform: rotate(-7deg);
-    }
-    100% {
-        transform: rotate(0degs);
-    }
+  0% {
+    transform: rotate(0deg);
+  }
+  25% {
+    transform: rotate(4deg);
+  }
+  50% {
+    transform: rotate(0deg);
+  }
+  75% {
+    transform: rotate(-7deg);
+  }
+  100% {
+    transform: rotate(0degs);
+  }
 }
 
 /* use this animation for the right-bicep (left arm on screen) */
 @keyframes logo-flex-reverse {
-    0% {
-        transform: rotate(0deg);
-    }
-    25% {
-        transform: rotate(-4deg);
-    }
-    50% {
-        transform: rotate(0deg);
-    }
-    75% {
-        transform: rotate(7deg);
-    }
-    100% {
-        transform: rotate(0degs);
-    }
+  0% {
+    transform: rotate(0deg);
+  }
+  25% {
+    transform: rotate(-4deg);
+  }
+  50% {
+    transform: rotate(0deg);
+  }
+  75% {
+    transform: rotate(7deg);
+  }
+  100% {
+    transform: rotate(0degs);
+  }
 }

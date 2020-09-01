@@ -26,36 +26,59 @@ const Login = () => {
   };
   return (
     <div className="container">
-        <h1 className="text-center textColor">HomeBody</h1>
+      <h1 className="text-center textColor mt-4 mb-5">HomeBody</h1>
       <div className="row justify-content-center">
-        <img src="/house-light.png" className="logoHouseLogin mt-3" alt=""></img>
-        <img src="/muscle1-light.png" className="bicepLeftLogin mt-3" alt=""></img>
-        <img src="/muscle2-light.png" className="bicepRightLogin mt-3" alt=""></img>
+        <img
+          src="/house-light.png"
+          className="logoHouseLogin"
+          alt=""
+          style={{ marginTop: "200px" }}
+        ></img>
+        <img
+          style={{ marginTop: "200px" }}
+          src="/muscle1-light.png"
+          className="bicepLeftLogin "
+          alt=""
+        ></img>
+        <img
+          style={{ marginTop: "200px" }}
+          src="/muscle2-light.png"
+          className="bicepRightLogin "
+          alt=""
+        ></img>
       </div>
-      <div
-        className="offset-md-3 col-md-6 offset-md-3 mt-3"
-        style={{ border: "1px solid white" }}
-      >
-        <h2 className="text-center" style={{ color: "white" }}>
-          Sign In
-        </h2>
-        <SocialButton
-          provider="google"
-          appId="655422208019-cq9d7c5d7rrjpuh0ucqjfd6cu3rp7e74.apps.googleusercontent.com"
-          onLoginSuccess={handleSocialLogin}
-          onLoginFailure={handleSocialLoginFailure}
-        >
-          <i className="fa fa-google"></i> Sign in with <b>Google</b>
-        </SocialButton>
-        <SocialButton
-          provider="facebook"
-          appId="321586675951521"
-          onLoginSuccess={handleSocialLogin}
-          onLoginFailure={handleSocialLoginFailure}
-        >
-          <i className="fa fa-facebook"></i> Sign in with <b>Facebook</b>
-        </SocialButton>
-        {/* <SocialButton
+      <div className="loginForm card bg-light" style={{ maxWidth: "18rem" }}>
+        <h3 className="text-center card-header">Sign In</h3>
+        <div className="card-body my-3">
+          <SocialButton
+            provider="google"
+            appId="655422208019-cq9d7c5d7rrjpuh0ucqjfd6cu3rp7e74.apps.googleusercontent.com"
+            onLoginSuccess={handleSocialLogin}
+            onLoginFailure={handleSocialLoginFailure}
+          >
+            <div className="googleLogin">
+              <img
+                src="btn_google_light_normal_ios.svg"
+                style={{ height: "30px", marginRight: "24px" }}
+              />
+              Sign in with Google
+            </div>
+          </SocialButton>
+          <SocialButton
+            provider="facebook"
+            appId="321586675951521"
+            onLoginSuccess={handleSocialLogin}
+            onLoginFailure={handleSocialLoginFailure}
+          >
+            <div className="facebookLogin">
+              <i
+                className="fab fa-facebook"
+                style={{ marginRight: "20px", fontSize: "19px" }}
+              />
+              Sign in with Facebook
+            </div>
+          </SocialButton>
+          {/* <SocialButton
           provider='github'
           gatekeeper='https://gatekeeperreact.herokuapp.com'
           appId='399ced5028cbcdf3a73e'
@@ -65,6 +88,7 @@ const Login = () => {
           >
         <i className="fa fa-github"></i> Sign in with <b>Github</b>
         </SocialButton> */}
+        </div>
       </div>
     </div>
   );
