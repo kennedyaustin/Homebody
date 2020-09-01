@@ -6,14 +6,10 @@ import SubmitButton from "../components/SubmitButton/SubmitButton";
 const Home = () => {
   const bodyContext = useContext(BodyContext);
 
-  const userName = bodyContext.userState.firstName;
-  const profileImage = bodyContext.userState.profileImage;
   return (
     <div className="container">
-      <h1>{userName}</h1>
-      <img src={profileImage}></img>
       <div className="row">
-        {bodyContext.targets.map((t) => (
+        {bodyContext.targets.options.map((t) => (
           <div key={t.name} className="col-6 col-md-3 mt-4">
             <MuscleChoice
               target={t.name}
