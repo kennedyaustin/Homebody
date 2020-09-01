@@ -1,14 +1,20 @@
-import React from 'react'
+import React, { useContext } from 'react'
 import BodyContext from "../../utils/BodyContext";
 import Cookies from "js-cookie";
 import './style.css'
 
 const Navbar = () => {
 
+  const {userState} = useContext(BodyContext)
+  const userName = userState.firstName
+  const profileImage = userState.profileImage
+
     const logout = () => {
       Cookies.remove("user");
       BodyContext.setAuth(false);
     };
+
+    
 
     return (
 

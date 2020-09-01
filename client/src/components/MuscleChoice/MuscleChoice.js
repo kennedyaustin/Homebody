@@ -2,7 +2,7 @@ import React, { useState, useContext } from "react";
 import BodyContext from "../../utils/BodyContext";
 import './style.css'
 
-const Card = ({ target, value, selected }) => {
+const MuscleChoice = ({ target, value, selected }) => {
 
   const { targets, setTargets } = useContext(BodyContext);
 
@@ -39,4 +39,4 @@ const Card = ({ target, value, selected }) => {
   );
 };
 
-export default Card;
+export default MuscleChoice;
