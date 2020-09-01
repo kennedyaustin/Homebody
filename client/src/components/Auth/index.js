@@ -15,10 +15,10 @@ const Auth = (props) => {
      
       API.getUser(userCookie)
       .then(resp => {
-        console.log(`-----------------------${resp}`)
-        bodyContext.setUser(resp)
+        bodyContext.setUser(resp.data)
         bodyContext.setAuth(true);
       })
+
     }
   }, []);
 

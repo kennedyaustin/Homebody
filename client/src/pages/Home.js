@@ -1,29 +1,32 @@
-import React, { useContext, useState } from "react";
+import React, { useContext } from "react";
 import BodyContext from "../utils/BodyContext";
-import MuscleType from "../components/MuscleChoice/MuscleChoiceBubble";
+import MuscleChoice from "../components/MuscleChoice/MuscleChoice";
+import SubmitButton from "../components/SubmitButton/SubmitButton";
 
 const Home = () => {
-  //const bodyContext = useContext(BodyContext);
-  const {userState, setUserState, targets, setTargets} = useContext(BodyContext)
+  const bodyContext = useContext(BodyContext);
 
+  const userName = bodyContext.userState.firstName;
+  const profileImage = bodyContext.userState.profileImage;
   return (
-    <div className="container-fluid">
+    <div className="container">
+      <h1>{userName}</h1>
+      <img src={profileImage}></img>
       <div className="row">
-
-        {targets.map(t => 
-          (
-            <div className="col-6 col-md-3 mt-4">
-              <MuscleType
-              key={t.name}
+        {bodyContext.targets.map((t) => (
+          <div key={t.name} className="col-6 col-md-3 mt-4">
+            <MuscleChoice
               target={t.name}
               value={t.name}
               selected={t.selected}
-              />
-            </div>
-          )
-        )}
-        
-
+            />
+          </div>
+        ))}
+      </div>
+      <div className="row mt-5">
+        <div className="col-8 offset-2 text-center">
+          <SubmitButton />
+        </div>
       </div>
     </div>
   );
