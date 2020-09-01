@@ -26,17 +26,29 @@ const Login = () => {
   };
   return (
     <div className="container">
-        <h1 className="text-center textColor">HomeBody</h1>
+      <h1 className="text-center textColor">HomeBody</h1>
       <div className="row justify-content-center">
-        <img src="/house-light.png" className="logoHouseLogin mt-3" alt=""></img>
-        <img src="/muscle1-light.png" className="bicepLeftLogin mt-3" alt=""></img>
-        <img src="/muscle2-light.png" className="bicepRightLogin mt-3" alt=""></img>
+        <img
+          src="/house-light.png"
+          className="logoHouseLogin mt-3"
+          alt=""
+        ></img>
+        <img
+          src="/muscle1-light.png"
+          className="bicepLeftLogin mt-3"
+          alt=""
+        ></img>
+        <img
+          src="/muscle2-light.png"
+          className="bicepRightLogin mt-3"
+          alt=""
+        ></img>
       </div>
       <div
-        className="offset-md-3 col-md-6 offset-md-3 mt-3"
+        className="offset-md-3 col-md-6 offset-md-3 mt-3 "
         style={{ border: "1px solid white" }}
       >
-        <h2 className="text-center" style={{ color: "white" }}>
+        <h2 className="text-center col-12" style={{ color: "white" }}>
           Sign In
         </h2>
         <SocialButton
@@ -45,7 +57,13 @@ const Login = () => {
           onLoginSuccess={handleSocialLogin}
           onLoginFailure={handleSocialLoginFailure}
         >
-          <i className="fa fa-google"></i> Sign in with <b>Google</b>
+          <div className="googleLogin">
+            <img
+              src="btn_google_light_normal_ios.svg"
+              style={{ height: "30px", marginRight: "24px" }}
+            />
+            Sign in with Google
+          </div>
         </SocialButton>
         <SocialButton
           provider="facebook"
@@ -53,7 +71,13 @@ const Login = () => {
           onLoginSuccess={handleSocialLogin}
           onLoginFailure={handleSocialLoginFailure}
         >
-          <i className="fa fa-facebook"></i> Sign in with <b>Facebook</b>
+          <div className="facebookLogin">
+            <i
+              className="fab fa-facebook"
+              style={{ marginRight: "26px", fontSize: "19px" }}
+            />
+            Login with Facebook
+          </div>
         </SocialButton>
         {/* <SocialButton
           provider='github'
