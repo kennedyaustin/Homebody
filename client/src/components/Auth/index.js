@@ -9,18 +9,17 @@ const Auth = (props) => {
 
   useEffect(() => {
     const userCookie = Cookies.get("user");
-    console.log(bodyContext)
 
     if (userCookie) {
      
       API.getUser(userCookie)
       .then(resp => {
-        console.log(resp)
         bodyContext.setUser(resp.data)
         bodyContext.setAuth(true);
       })
 
     }
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   return <>{bodyContext.authState ? props.children  : <Login />}</>;

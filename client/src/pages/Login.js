@@ -60,6 +60,7 @@ const Login = () => {
               <img
                 src="btn_google_light_normal_ios.svg"
                 style={{ height: "30px", marginRight: "24px" }}
+                alt="Google Button"
               />
               Sign in with Google
             </div>

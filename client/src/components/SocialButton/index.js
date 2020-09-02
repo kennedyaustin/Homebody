@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import SocialLogin from "react-social-login";
-import style from "./style.css";
+// import style from "./style.css";
 
 class SocialButton extends Component {
   render() {

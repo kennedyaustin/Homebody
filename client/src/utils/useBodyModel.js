@@ -27,7 +27,6 @@ const useBodyModel = () => {
     workout: []
   }
 )
-
   return { authState, setAuth, userState, setUser, targets, setTargets };
 };
 
