@@ -1,27 +1,30 @@
 import React, { useContext, useState, useEffect } from "react";
 import BodyContext from "../../utils/BodyContext";
 import API from '../../utils/API'
+import Tooltip from 'react-bootstrap/Tooltip';
+import OverlayTrigger from 'react-bootstrap/OverlayTrigger';
+import Button from 'react-bootstrap/Button';
 
 function SubmitButton() {
 
     const { targets, setTargets } = useContext(BodyContext);
-    const [ selectedState, updateSelected ] = useState(false)
+    const [selectedState, updateSelected] = useState(false)
 
     // toggle submit button deactivation based on targets hook
     useEffect(() => {
-     (async () => {
-         if (targets.options[0].selected || targets.options[1].selected || targets.options[2].selected || targets.options[3].selected){
-            updateSelected(true)
-        } else {
-            updateSelected(false)
-        }
-     })()
-        
+        (async () => {
+            if (targets.options[0].selected || targets.options[1].selected || targets.options[2].selected || targets.options[3].selected) {
+                updateSelected(true)
+            } else {
+                updateSelected(false)
+            }
+        })()
+
     }, [targets])
-    
+
     // function for a single target query
     const oneTarget = data => {
-        setTargets({...targets}, targets.workout = data)
+        setTargets({ ...targets }, targets.workout = data)
     }
 
     // function for a two target query
@@ -31,8 +34,8 @@ function SubmitButton() {
         let n = data.length
         let workoutArr = []
 
-        for (let i =0; i < n; i++){
-            if (data[i].target === targetArr[0] && countOne < 3){
+        for (let i = 0; i < n; i++) {
+            if (data[i].target === targetArr[0] && countOne < 3) {
                 workoutArr.push(data[i])
                 countOne++
             } else if (data[i].target === targetArr[1] && countTwo < 3) {
@@ -40,7 +43,7 @@ function SubmitButton() {
                 countTwo++
             }
         }
-        setTargets({...targets}, targets.workout = workoutArr)
+        setTargets({ ...targets }, targets.workout = workoutArr)
     }
 
     // function for three target query
@@ -51,8 +54,8 @@ function SubmitButton() {
         let n = data.length
         let workoutArr = []
 
-        for (let i =0; i < n; i++){
-            if (data[i].target === targetArr[0] && countOne < 2){
+        for (let i = 0; i < n; i++) {
+            if (data[i].target === targetArr[0] && countOne < 2) {
                 workoutArr.push(data[i])
                 countOne++
             } else if (data[i].target === targetArr[1] && countTwo < 2) {
@@ -63,7 +66,7 @@ function SubmitButton() {
                 countThree++
             }
         }
-        setTargets({...targets}, targets.workout = workoutArr)
+        setTargets({ ...targets }, targets.workout = workoutArr)
     }
 
     // function for four target query
@@ -75,8 +78,8 @@ function SubmitButton() {
         let n = data.length
         let workoutArr = []
 
-        for (let i =0; i < n; i++){
-            if (data[i].target === targetArr[0] && countOne < 2){
+        for (let i = 0; i < n; i++) {
+            if (data[i].target === targetArr[0] && countOne < 2) {
                 workoutArr.push(data[i])
                 countOne++
             } else if (data[i].target === targetArr[1] && countTwo < 2) {
@@ -90,28 +93,27 @@ function SubmitButton() {
                 countFour++
             }
         }
-        setTargets({...targets}, targets.workout = workoutArr)
+        setTargets({ ...targets }, targets.workout = workoutArr)
     }
 
     // on submit button click
     const handleSubmit = e => {
         let targetArr = []
-        for (let i = 0; i < 4; i++){
-            if (targets.options[i].selected){
+        for (let i = 0; i < 4; i++) {
+            if (targets.options[i].selected) {
                 targetArr.push(targets.options[i].name.toLowerCase())
             }
         }
         API.getExerciseByTarget(targetArr)
         .then(results => {
-            
             let data = results.data
-            for(let i = data.length - 1; i > 0; i--){
+            for (let i = data.length - 1; i > 0; i--) {
                 const j = Math.floor(Math.random() * i)
                 const temp = data[i]
                 data[i] = data[j]
                 data[j] = temp
             }
-            switch (targetArr.length){
+            switch (targetArr.length) {
                 case 1:
                     oneTarget(data)
                     console.log(targets.workout)
@@ -135,11 +137,27 @@ function SubmitButton() {
     }
 
     return (
-        <div>
 
-            <button type="button" className="btn btn-danger btn-lg" disabled={!selectedState} onClick={handleSubmit}>Create My Workout</button>
-
-        </div>
+        !selectedState ? (
+        <OverlayTrigger
+            placement="bottom"
+            overlay={<Tooltip className="tooltip-light" id="tooltip-disabled">Select One or More Category From Above</Tooltip>}
+        > 
+            <span className="d-inline-block">
+                <Button className="btn btn-danger btn-lg" type="button" disabled={!selectedState} style={{ pointerEvents: 'none' }} onClick={handleSubmit}>
+                    Create My Workout
+                </Button>
+            </span>
+            {/* <button type="button" className="btn btn-danger btn-lg" disabled={!selectedState} onClick={handleSubmit}>Create My Workout</button> */}
+        </OverlayTrigger>
+        ) : 
+        (
+            <span className="d-inline-block">
+                <Button className="btn btn-danger btn-lg" type="button" disabled={!selectedState} onClick={handleSubmit}>
+                    Create My Workout
+                </Button>
+            </span>
+        )
     )
 }
 

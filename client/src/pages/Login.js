@@ -46,23 +46,23 @@ const Login = ({ history }) => {
   return (
     <div className="container">
       <h1 className="text-center textColor mt-4 mb-5">HomeBody</h1>
-      <div className="row justify-content-center">
+      <div className="row col-10 offset-1 d-flex justify-content-center">
         <img
           src="/house-light.png"
-          className="logoHouseLogin"
+          className="logoHouseLogin mw-100"
           alt=""
           style={{ marginTop: "200px" }}
         ></img>
         <img
           style={{ marginTop: "200px" }}
           src="/muscle1-light.png"
-          className="bicepLeftLogin "
+          className="bicepLeftLogin  mw-100"
           alt=""
         ></img>
         <img
           style={{ marginTop: "200px" }}
           src="/muscle2-light.png"
-          className="bicepRightLogin "
+          className="bicepRightLogin mw-100"
           alt=""
         ></img>
       </div>
@@ -79,6 +79,7 @@ const Login = ({ history }) => {
               <img
                 src="btn_google_light_normal_ios.svg"
                 style={{ height: "30px", marginRight: "24px" }}
+                alt="Google Button"
               />
               Sign in with Google
             </div>
