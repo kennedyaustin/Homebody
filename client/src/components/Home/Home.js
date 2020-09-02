@@ -1,7 +1,7 @@
 import React, { useContext } from "react";
-import BodyContext from "../utils/BodyContext";
-import MuscleChoice from "../components/MuscleChoice/MuscleChoice";
-import SubmitButton from "../components/SubmitButton/SubmitButton";
+import BodyContext from "../../utils/BodyContext";
+import MuscleChoice from "../MuscleChoice/MuscleChoice";
+import SubmitButton from "../SubmitButton/SubmitButton";
 
 const Home = () => {
   const bodyContext = useContext(BodyContext);

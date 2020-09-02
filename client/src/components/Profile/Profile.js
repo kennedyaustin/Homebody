@@ -1,6 +1,6 @@
 import React, { useContext } from "react";
 import Cookies from "js-cookie";
-import BodyContext from "../utils/BodyContext";
+import BodyContext from "../../utils/BodyContext";
 
 const Profile = () => {
   const bodyContext = useContext(BodyContext);

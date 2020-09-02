@@ -1,20 +1,34 @@
-import React, { useContext } from "react";
+import React, { useContext, useEffect } from "react";
+import { Redirect } from "react-router-dom";
+import { useLastLocation } from "react-router-last-location";
+import Cookies from "js-cookie";
 import SocialButton from "../components/SocialButton";
 import BodyContext from "../utils/BodyContext";
-import Cookies from "js-cookie";
 import API from "../utils/API";
 import "./Login.css";
 
-const Login = () => {
+const Login = ({ history }) => {
   const bodyContext = useContext(BodyContext);
+  const lastLocation = useLastLocation();
+
+  useEffect(() => {
+    const userCookie = Cookies.get("user");
+
+    if (userCookie) {
+      bodyContext.setAuth(true);
+      API.getUser(userCookie).then((resp) => {
+        bodyContext.setUser(resp.data);
+      });
+    }
+  }, []);
 
   const handleSocialLogin = (data) => {
     API.loginUser(data._profile)
       .then((resp) => {
-        console.log(resp);
         bodyContext.setUser(resp.data);
         bodyContext.setAuth(true);
         Cookies.set("user", resp.data.email, { expires: 7 });
+        history.push("/home");
       })
       .catch((err) => {
         console.log("login failed");
@@ -24,6 +38,11 @@ const Login = () => {
   const handleSocialLoginFailure = (data) => {
     console.log(data);
   };
+
+  if (bodyContext.authState) {
+    return <Redirect to={lastLocation ? lastLocation : "/home"} />;
+  }
+
   return (
     <div className="container">
       <h1 className="text-center textColor mt-4 mb-5">HomeBody</h1>
