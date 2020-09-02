@@ -29,7 +29,7 @@ const Navbar = () => {
         </button>
         <div className="collapse navbar-collapse" id="navbarNavAltMarkup">
           <div className="navbar-nav ml-auto">
-            <a className="navbar-brand mt-1 mr-2" href= '/profile'><img className="profilePic" src={profileImage}></img></a>
+            <a className="navbar-brand mt-1 mr-2" href= '/profile'><img className="profilePic" alt='' src={profileImage}></img></a>
             <a className="nav-item nav-link pt-4 pr-2 nameColor" href='/profile'>{userName}</a>
             <a className="nav-item nav-link pt-4 nameColor" href="/">Home <span className="sr-only">(current)</span></a>
             <a className="nav-item nav-link pt-4" href="/profile">Saved Workouts</a>

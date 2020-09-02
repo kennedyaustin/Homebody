@@ -23,7 +23,8 @@ const useBodyModel = () => {
         name: 'Core',
         selected: false
       }
-    ]
+    ],
+    workout: []
   }
 )
 
