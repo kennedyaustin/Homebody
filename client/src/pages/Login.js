@@ -1,13 +1,15 @@
 import React, { useContext, useEffect } from "react";
+import { Redirect } from "react-router-dom";
+import { useLastLocation } from "react-router-last-location";
+import Cookies from "js-cookie";
 import SocialButton from "../components/SocialButton";
 import BodyContext from "../utils/BodyContext";
-import Cookies from "js-cookie";
 import API from "../utils/API";
 import "./Login.css";
-import { Redirect } from "react-router-dom";
 
 const Login = ({ history }) => {
   const bodyContext = useContext(BodyContext);
+  const lastLocation = useLastLocation();
 
   useEffect(() => {
     const userCookie = Cookies.get("user");
@@ -15,7 +17,6 @@ const Login = ({ history }) => {
     if (userCookie) {
       bodyContext.setAuth(true);
       API.getUser(userCookie).then((resp) => {
-        bodyContext.setAuth(true);
         bodyContext.setUser(resp.data);
       });
     }
@@ -39,7 +40,7 @@ const Login = ({ history }) => {
   };
 
   if (bodyContext.authState) {
-    return <Redirect to="/home" />;
+    return <Redirect to={lastLocation ? lastLocation : "/home"} />;
   }
 
   return (
