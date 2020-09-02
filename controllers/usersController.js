@@ -11,6 +11,11 @@ module.exports = {
       .then((dbModel) => res.json(dbModel))
       .catch((err) => res.status(422).json(err));
   },
+  postById: function (req, res) {
+    db.findOne({ email: req.body.email })
+      .then((dbModel) => res.json(dbModel))
+      .catch((err) => res.status(422).json(err));
+  },
   login: function (req, res) {
     db.findOne({
       email: req.body.email,
