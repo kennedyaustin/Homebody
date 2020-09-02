@@ -105,46 +105,43 @@ function SubmitButton() {
             }
         }
         API.getExerciseByTarget(targetArr)
-            .then(results => {
-
-                let data = results.data
-                for (let i = data.length - 1; i > 0; i--) {
-                    const j = Math.floor(Math.random() * i)
-                    const temp = data[i]
-                    data[i] = data[j]
-                    data[j] = temp
-                }
-                switch (targetArr.length) {
-                    case 1:
-                        oneTarget(data)
-                        console.log(targets.workout)
-                        break;
-                    case 2:
-                        twoTargets(data, targetArr)
-                        console.log(targets.workout)
-                        break;
-                    case 3:
-                        threeTargets(data, targetArr)
-                        console.log(targets.workout)
-                        break;
-                    case 4:
-                        fourTargets(data, targetArr)
-                        console.log(targets.workout)
-                        break;
-                    default:
-                        console.log('Something went wrong.')
-                }
-            })
+        .then(results => {
+            let data = results.data
+            for (let i = data.length - 1; i > 0; i--) {
+                const j = Math.floor(Math.random() * i)
+                const temp = data[i]
+                data[i] = data[j]
+                data[j] = temp
+            }
+            switch (targetArr.length) {
+                case 1:
+                    oneTarget(data)
+                    console.log(targets.workout)
+                    break;
+                case 2:
+                    twoTargets(data, targetArr)
+                    console.log(targets.workout)
+                    break;
+                case 3:
+                    threeTargets(data, targetArr)
+                    console.log(targets.workout)
+                    break;
+                case 4:
+                    fourTargets(data, targetArr)
+                    console.log(targets.workout)
+                    break;
+                default:
+                    console.log('Something went wrong.')
+            }
+        })
     }
 
     return (
 
-
-
         !selectedState ? (
         <OverlayTrigger
             placement="bottom"
-            overlay={<Tooltip className="tooltip-light" id="tooltip-disabled">Select One or More Categories From Above</Tooltip>}
+            overlay={<Tooltip className="tooltip-light" id="tooltip-disabled">Select One or More Category From Above</Tooltip>}
         > 
             <span className="d-inline-block">
                 <Button className="btn btn-danger btn-lg" type="button" disabled={!selectedState} style={{ pointerEvents: 'none' }} onClick={handleSubmit}>
