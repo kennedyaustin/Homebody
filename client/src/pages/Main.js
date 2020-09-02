@@ -18,13 +18,13 @@ function Main() {
   }
 
   return (
-    <Router>
+    <>
       <Navbar />
       <Switch>
-        <Route path="/home" component={Home} />
         <Route path="/profile" component={Profile} />
+        <Route component={Home} />
       </Switch>
-    </Router>
+    </>
   );
 }
 

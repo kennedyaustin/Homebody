@@ -15,6 +15,7 @@ const Login = ({ history }) => {
     if (userCookie) {
       bodyContext.setAuth(true);
       API.getUser(userCookie).then((resp) => {
+        bodyContext.setAuth(true);
         bodyContext.setUser(resp.data);
       });
     }
@@ -23,7 +24,6 @@ const Login = ({ history }) => {
   const handleSocialLogin = (data) => {
     API.loginUser(data._profile)
       .then((resp) => {
-        console.log(resp);
         bodyContext.setUser(resp.data);
         bodyContext.setAuth(true);
         Cookies.set("user", resp.data.email, { expires: 7 });
