@@ -7,8 +7,8 @@ export default {
         return axios.post('/api/users', body)
     },
 
-    getUser: function(id) {
-        return axios.get('api/users/' + id)
+    getUser: function(email) {
+        return axios.post('api/users/login', {email})
     },
 
     // using post to retrieve all exercises from specified targets(array)
