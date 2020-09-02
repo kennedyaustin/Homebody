@@ -1,12 +1,24 @@
-import React, { useContext } from "react";
+import React, { useContext, useEffect } from "react";
 import SocialButton from "../components/SocialButton";
 import BodyContext from "../utils/BodyContext";
 import Cookies from "js-cookie";
 import API from "../utils/API";
 import "./Login.css";
+import { Redirect } from "react-router-dom";
 
-const Login = () => {
+const Login = ({ history }) => {
   const bodyContext = useContext(BodyContext);
+
+  useEffect(() => {
+    const userCookie = Cookies.get("user");
+
+    if (userCookie) {
+      bodyContext.setAuth(true);
+      API.getUser(userCookie).then((resp) => {
+        bodyContext.setUser(resp.data);
+      });
+    }
+  }, []);
 
   const handleSocialLogin = (data) => {
     API.loginUser(data._profile)
@@ -15,6 +27,7 @@ const Login = () => {
         bodyContext.setUser(resp.data);
         bodyContext.setAuth(true);
         Cookies.set("user", resp.data.email, { expires: 7 });
+        history.push("/home");
       })
       .catch((err) => {
         console.log("login failed");
@@ -24,6 +37,11 @@ const Login = () => {
   const handleSocialLoginFailure = (data) => {
     console.log(data);
   };
+
+  if (bodyContext.authState) {
+    return <Redirect to="/home" />;
+  }
+
   return (
     <div className="container">
       <h1 className="text-center textColor mt-4 mb-5">HomeBody</h1>
