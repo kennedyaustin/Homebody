@@ -19,7 +19,7 @@ function App() {
           <Switch>
             <Route path="/login" component={Login} />
             <Route path="/" component={Main} />
-          </Switch>{" "}
+          </Switch>
         </LastLocationProvider>
       </Router>
     </BodyContext.Provider>

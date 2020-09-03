@@ -27,6 +27,9 @@ const MuscleChoice = ({ target, value, selected }) => {
           {target}
         </div>
       </div>
+
+      <div>
+      </div>
     </div>
   );
 };
