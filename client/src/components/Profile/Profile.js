@@ -3,15 +3,17 @@ import Cookies from "js-cookie";
 import BodyContext from "../../utils/BodyContext";
 
 const Profile = () => {
-  const bodyContext = useContext(BodyContext);
+  const { userState, setAuth } = useContext(BodyContext);
 
   const logout = () => {
     Cookies.remove("user");
-    bodyContext.setAuth(false);
+    BodyContext.setAuth(false);
   };
 
   return (
     <>
+      <h1>Saved Workouts:</h1>
+      
       <button className="btn btn-primary" onClick={logout}>
         logout
       </button>

@@ -9,6 +9,7 @@ import Home from "../components/Home/Home";
 import Profile from "../components/Profile/Profile";
 import Navbar from "../components/Navbar/Navbar.js";
 import BodyContext from "../utils/BodyContext";
+import WorkoutCard from "../components/WorkoutCard/WorkoutCard";
 
 function Main() {
   const bodyContext = useContext(BodyContext);
@@ -21,7 +22,8 @@ function Main() {
     <>
       <Navbar />
       <Switch>
-        <Route path="/profile" component={Profile} />
+        <Route exact path="/profile" component={Profile} />
+        <Route exact path="/workout" component={WorkoutCard} />
         <Route component={Home} />
       </Switch>
     </>

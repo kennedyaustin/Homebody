@@ -4,11 +4,15 @@ import API from '../../utils/API'
 import Tooltip from 'react-bootstrap/Tooltip';
 import OverlayTrigger from 'react-bootstrap/OverlayTrigger';
 import Button from 'react-bootstrap/Button';
+import { useHistory } from "react-router-dom";
+
 
 function SubmitButton() {
 
-    const { targets, setTargets } = useContext(BodyContext);
+    const { targets, setTargets, workout, setWorkout } = useContext(BodyContext);
     const [selectedState, updateSelected] = useState(false)
+    const history = useHistory();
+
 
     // toggle submit button deactivation based on targets hook
     useEffect(() => {
@@ -24,7 +28,7 @@ function SubmitButton() {
 
     // function for a single target query
     const oneTarget = data => {
-        setTargets({ ...targets }, targets.workout = data)
+        setWorkout( data )
     }
 
     // function for a two target query
@@ -43,7 +47,7 @@ function SubmitButton() {
                 countTwo++
             }
         }
-        setTargets({ ...targets }, targets.workout = workoutArr)
+        setWorkout(workoutArr)
     }
 
     // function for three target query
@@ -66,7 +70,7 @@ function SubmitButton() {
                 countThree++
             }
         }
-        setTargets({ ...targets }, targets.workout = workoutArr)
+        setWorkout(workoutArr)
     }
 
     // function for four target query
@@ -93,7 +97,7 @@ function SubmitButton() {
                 countFour++
             }
         }
-        setTargets({ ...targets }, targets.workout = workoutArr)
+        setWorkout(workoutArr)
     }
 
     // on submit button click
@@ -116,19 +120,23 @@ function SubmitButton() {
             switch (targetArr.length) {
                 case 1:
                     oneTarget(data)
-                    console.log(targets.workout)
+                    console.log(workout)
+                    history.push('/workout')
                     break;
                 case 2:
                     twoTargets(data, targetArr)
-                    console.log(targets.workout)
+                    console.log(workout)
+                    history.push('/workout')
                     break;
                 case 3:
                     threeTargets(data, targetArr)
-                    console.log(targets.workout)
+                    console.log(workout)
+                    history.push('/workout')
                     break;
                 case 4:
                     fourTargets(data, targetArr)
-                    console.log(targets.workout)
+                    console.log(workout)
+                    history.push('/workout')
                     break;
                 default:
                     console.log('Something went wrong.')

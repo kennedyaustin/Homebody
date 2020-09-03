@@ -44,27 +44,26 @@ const Login = ({ history }) => {
   }
 
   return (
-    <div className="container">
-      <h1 className="text-center textColor mt-4 mb-5">HomeBody</h1>
+    <>
+    <div className="container d-flex flex-column justify-content-center">
       <div className="row col-10 offset-1 d-flex justify-content-center">
         <img
           src="/house-light.png"
-          className="logoHouseLogin mw-100"
+          className="logoHouseLogin logoHouse mw-100"
           alt=""
-          style={{ marginTop: "200px" }}
-        ></img>
+        />
         <img
-          style={{ marginTop: "200px" }}
           src="/muscle1-light.png"
-          className="bicepLeftLogin  mw-100"
+          className="bicepLeftLogin bicepLeft mw-100"
           alt=""
-        ></img>
+        />
         <img
-          style={{ marginTop: "200px" }}
           src="/muscle2-light.png"
-          className="bicepRightLogin mw-100"
+          className="bicepRightLogin bicepRight mw-100"
           alt=""
-        ></img>
+        />
+      
+        <h1 className="text-center textColor mt-4 mb-5">HomeBody</h1>
       </div>
       <div className="loginForm card bg-light" style={{ maxWidth: "18rem" }}>
         <h3 className="text-center card-header">Sign In</h3>
@@ -111,6 +110,7 @@ const Login = ({ history }) => {
         </div>
       </div>
     </div>
+    </>
   );
 };
 

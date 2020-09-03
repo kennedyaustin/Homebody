@@ -5,7 +5,11 @@ const workoutsSchema = new Schema({
     workout: [{
         type: Schema.Types.ObjectId,
         ref: "Exercises"
-    }]
+    }],
+    created: {
+        type: Schema.Types.Date,
+        default: new Date()
+    }
 
 
 })
