@@ -6,16 +6,14 @@
 }
 
 .logoHouseLogin {
-  position: absolute;
+  
 }
 
 .bicepLeftLogin {
-  
   animation: logo-flex infinite 4s ease-in-out;
 }
 
 .bicepRightLogin {
-  
   animation: logo-flex-reverse infinite 4s ease-in-out;
 }
 

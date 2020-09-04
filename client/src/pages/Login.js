@@ -46,7 +46,9 @@ const Login = ({ history }) => {
   return (
     <>
     <div className="container d-flex flex-column justify-content-center">
-      <div className="row col-10 offset-1 d-flex justify-content-center">
+      <div className="houseBackground row col-10 offset-1 d-flex justify-content-center">
+        
+        <div className= "">
         <img
           src="/house-light.png"
           className="logoHouseLogin logoHouse mw-100"
@@ -62,6 +64,7 @@ const Login = ({ history }) => {
           className="bicepRightLogin bicepRight mw-100"
           alt=""
         />
+        </div>
       
         <h1 className="text-center textColor mt-4 mb-5">HomeBody</h1>
       </div>

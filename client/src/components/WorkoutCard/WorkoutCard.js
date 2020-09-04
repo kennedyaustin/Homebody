@@ -8,40 +8,72 @@ function WorkoutCard() {
 
     const {workout} = useContext(BodyContext)
 
+    // ----------
+    // Push workouts have duplicate "Alternative Name" for "Decline Pushups"
+    // ----------
+    // When refreshed, workout disappears from the workout "Page"
+    // ----------
     return (
         <>
         <Card
-            bg="dark"
+            className= "mt-5 col-12 col-sm-10 offset-sm-1 col-md-8 offset-md-2 col-lg-6 offset-lg-3"
             text="light"
-            style={{ width: "18rem" }}
+            style={{ backgroundColor: '#1a1a1a' }}
         >
         <Card.Body>
-            <Card.Title>Your Workout</Card.Title>
+            <Card.Title className= "text-center font-weight-bold">
+                Your Workout
+            </Card.Title>
             {workout.map(w => {
                 return (
                     <>
-                        <Card.Subtitle className="mb-2 text-muted">{w.exerciseName}</Card.Subtitle>
-                        <Card.Text>{w.exerciseInfo}</Card.Text>
-                        {w.alternatives.map(a => 
-                            (<Card.Text>{a}</Card.Text>)
-                        )}
+                        <Card.Subtitle className="text-muted text-center">
+                            <div className= "mt-4 text-light">
+                              Exercise: <br />
+                            </div>
+                            {w.exerciseName}
+                        </Card.Subtitle>
+
+                        <Card.Text className= "text-muted mt-4 text-center">
+                            {/* style for spacing/line at bottom */}
+                            <div style= {{ borderBottom: '1px solid #333232', paddingBottom: '20px'}}>
+
+                                <div className= "text-light">
+                                  Description: <br />
+                                </div>
+                                {w.exerciseInfo} <br />
+                                <div className= "mt-4 text-light">
+                                    Alternative Exercies: <br />
+                                </div>
+
+                                {w.alternatives.map(a => 
+                                (<Card.Text className= "">
+                                    {a}
+                                </Card.Text>)
+                                )}
+                                
+                            </div>
+                        </Card.Text>
                     </>
                 )
             })}
     
-            <Link className= "btn btn-danger btn-lg" to="/">
-                <img 
-                className= "mb-1" 
-                src="https://img.icons8.com/metro/15/000000/back.png"/>
-                New Workout
-            </Link>
-            <Link className= "btn btn-secondary btn-lg" to="/profile">
-                {/* Flip this image */}
-                <img
-                className= "mb-1 arrowDirection"
-                src="https://img.icons8.com/metro/15/000000/back.png"/>
-                Save Workout
-            </Link>
+            <div className= "container">
+                <div className= "d-flex justify-content-center">
+                    <Link className= "btn btn-danger btn-md mr-2" to="/">
+                        New Workout
+                        <img 
+                        className= "mb-1 pl-1" 
+                        src="/arrow-204.png"/>
+                    </Link>
+                    <Link className= "btn btn-secondary btn-md ml-2" to="/profile">
+                        Save Workout
+                        <img
+                        className= "mb-1 pl-1"
+                        src="/arrow-203.png"/>
+                    </Link>
+                </div>
+            </div>
         </Card.Body>
         </Card>
         </>
