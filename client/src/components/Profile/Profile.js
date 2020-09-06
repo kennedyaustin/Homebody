@@ -3,7 +3,6 @@ import Cookies from "js-cookie";
 import BodyContext from "../../utils/BodyContext";
 
 const Profile = () => {
-  const { userState, setAuth } = useContext(BodyContext);
 
   const logout = () => {
     Cookies.remove("user");

@@ -4,7 +4,7 @@ const db = require("../models");
 mongoose.connect(
     process.env.MONGODB_URI ||
     "mongodb://localhost/homeBodyFitness"
-);
+, { useNewUrlParser: true, useUnifiedTopology: true });
 
 const exerciseSeed = [
     {
@@ -17,7 +17,7 @@ const exerciseSeed = [
         exerciseName: "Decline Push-ups",
         exerciseInfo: "Perform 3-4 sets of as many reps as you can with good form.",
         target: "push",
-        alternatives: ["Stability Ball Push-ups", "Decline Push-ups"]
+        alternatives: ["Stability Ball Push-ups", "Diamond Push-ups"]
     },
     {
         exerciseName: "Suspension Trainer Chest Press",

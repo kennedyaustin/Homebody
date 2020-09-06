@@ -1,6 +1,6 @@
 import React, { useContext, useState, useEffect } from "react";
-import BodyContext from "../../utils/BodyContext";
-import API from '../../utils/API'
+import BodyContext from "../../../utils/BodyContext";
+import API from '../../../utils/API'
 import Tooltip from 'react-bootstrap/Tooltip';
 import OverlayTrigger from 'react-bootstrap/OverlayTrigger';
 import Button from 'react-bootstrap/Button';
@@ -9,7 +9,7 @@ import { useHistory } from "react-router-dom";
 
 function SubmitButton() {
 
-    const { targets, setTargets, workout, setWorkout } = useContext(BodyContext);
+    const { targets, setWorkout } = useContext(BodyContext);
     const [selectedState, updateSelected] = useState(false)
     const history = useHistory();
 
@@ -120,22 +120,18 @@ function SubmitButton() {
             switch (targetArr.length) {
                 case 1:
                     oneTarget(data)
-                    console.log(workout)
                     history.push('/workout')
                     break;
                 case 2:
                     twoTargets(data, targetArr)
-                    console.log(workout)
                     history.push('/workout')
                     break;
                 case 3:
                     threeTargets(data, targetArr)
-                    console.log(workout)
                     history.push('/workout')
                     break;
                 case 4:
                     fourTargets(data, targetArr)
-                    console.log(workout)
                     history.push('/workout')
                     break;
                 default:

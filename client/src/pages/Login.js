@@ -2,7 +2,7 @@ import React, { useContext, useEffect } from "react";
 import { Redirect } from "react-router-dom";
 import { useLastLocation } from "react-router-last-location";
 import Cookies from "js-cookie";
-import SocialButton from "../components/SocialButton";
+import SocialButton from "../components/buttons/SocialButton";
 import BodyContext from "../utils/BodyContext";
 import API from "../utils/API";
 import "./Login.css";
