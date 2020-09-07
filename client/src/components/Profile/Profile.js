@@ -1,4 +1,4 @@
-import React, { useContext } from "react";
+import React from "react";
 import Cookies from "js-cookie";
 import BodyContext from "../../utils/BodyContext";
 

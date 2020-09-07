@@ -3,7 +3,7 @@ import BodyContext from "../../utils/BodyContext";
 import Cookies from "js-cookie";
 import "./style.css";
 import { Link, useHistory } from "react-router-dom";
-import { Navbar, Nav, Button, FormControl } from 'react-bootstrap'
+import { Navbar, Nav } from 'react-bootstrap'
 
 const Navbarhome = () => {
   const { userState, setAuth } = useContext(BodyContext);
@@ -31,7 +31,7 @@ const Navbarhome = () => {
         <Nav className="ml-auto">
           <div className="navbar-nav">
             <Link className="navbar-brand mt-1 mr-2" to="/profile">
-              <img className="profilePic" src={profileImage}></img>
+              <img className="profilePic" src={profileImage} alt=""></img>
             </Link>
             <Link className="nav-item nav-link pt-4 pr-2 nameColor" to="/profile">
               {userName}
@@ -42,7 +42,7 @@ const Navbarhome = () => {
             <Link className="nav-item nav-link pt-4" to="/profile">
               Saved Workouts
             </Link>
-            <a type="button" className="nav-item nav-link pt-4" onClick={logout}>
+            <a type="button" href="" className="nav-item nav-link pt-4" onClick={logout}>
               Logout
             </a>
           </div>

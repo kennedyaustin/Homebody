@@ -23,13 +23,12 @@ function WorkoutCard() {
                     <Card.Title className="text-center font-weight-bold">
                         <h1>
                             Your Workout
-                </h1>
-                        <hr />
+                        </h1>
                     </Card.Title>
                     {workout.map(w => {
                         return (
-                            <>
-                                <Card.Subtitle key={w.exerciseName} className="text-muted text-center">
+                            <div key={w.exerciseName}>
+                                <Card.Subtitle className="text-muted text-center">
                                     <div className="mt-4 text-light">
                                         <h3>Exercise: </h3>
                                         <br />
@@ -54,11 +53,11 @@ function WorkoutCard() {
                                         </Card.Text>
                                     </div>
                                 </Card.Text>
-                            </>
+                            </div>
                         )
                     })}
 
-                    <div className="container">
+                    <div className="container mt-4">
                         <div className="d-flex justify-content-center">
                             <NewWorkoutButton />
                             <SaveButton />
