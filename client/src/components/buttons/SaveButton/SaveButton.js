@@ -8,7 +8,6 @@ const SaveButton = () => {
     const { workout } = useContext(BodyContext)
 
     const handleSave = e => {
-        console.log(e)
         const n = workout.length
         const workoutBody = []
         for (let i=0; i < n; i++){

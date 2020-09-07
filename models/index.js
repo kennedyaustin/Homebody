@@ -1,7 +1,7 @@
 module.exports = {
 
-    Exercise: require("./exercises"),
-    User: require("./users"),
-    Workout: require("./workouts"),
+    Exercises: require("./exercises"),
+    Users: require("./users"),
+    Workouts: require("./workouts"),
 
 }

@@ -2,25 +2,26 @@ const db = require("../models/");
 
 module.exports = {
   findAll: function(req, res) {
-    db.Workout
+    db.Workouts
       .find(req.query)
       .then(dbModel => res.json(dbModel))
       .catch(err => res.status(422).json(err));
   },
   findById: function(req, res) {
-    db.Workout
+    db.Workouts
       .findById(req.params.id)
       .then(dbModel => res.json(dbModel))
       .catch(err => res.status(422).json(err));
   },
   create: function(req, res) {
-    db.Workout
+    db.Workouts
       .create({})
       .then(dbModel => 
         {
-          db.Workout.update({_id: dbModel._id}, {workout: req.body})
+          db.Workouts.updateOne({_id: dbModel._id}, {workout: req.body})
           .then(results => {
-            db.User.update({_id: '5f54134cd9cfff363c7cca1a'}, {$push: {savedWorkouts: dbModel._id}}) // replace with your user _id for now
+            console.log(dbModel)
+            db.Users.updateOne({_id: '5f54134cd9cfff363c7cca1a'}, {$push: {savedWorkouts: dbModel._id}}) // replace with your user _id for now
             .then(r => res.json(r)) //req.session.userId or something like that
           })
           
@@ -28,13 +29,13 @@ module.exports = {
       .catch(err => res.status(422).json(err));
   },
   update: function(req, res) {
-    db.Workout
+    db.Workouts
       .findOneAndUpdate({ _id: req.params.id }, req.body)
       .then(dbModel => res.json(dbModel))
       .catch(err => res.status(422).json(err));
   },
   remove: function(req, res) {
-    db.Workout
+    db.Workouts
       .findById({ _id: req.params.id })
       .then(dbModel => dbModel.remove())
       .then(dbModel => res.json(dbModel))

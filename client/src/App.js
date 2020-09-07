@@ -3,7 +3,6 @@ import {
   BrowserRouter as Router,
   Route,
   Switch,
-  Redirect,
 } from "react-router-dom";
 import { LastLocationProvider } from "react-router-last-location";
 import BodyContext from "./utils/BodyContext";
