@@ -5,15 +5,16 @@ import API from '../../../utils/API';
 
 const SaveButton = () => {
 
-    const { workout } = useContext(BodyContext)
+    const { workout, userState } = useContext(BodyContext)
 
     const handleSave = e => {
+        const userId = userState._id
         const n = workout.length
         const workoutBody = []
         for (let i=0; i < n; i++){
             workoutBody.push(workout[i]._id)
         }
-        API.createWorkout(workoutBody)
+        API.createWorkout(userId, workoutBody)
         .then(results => console.log(results))
         
     }

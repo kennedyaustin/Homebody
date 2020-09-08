@@ -42,7 +42,7 @@ const Navbarhome = () => {
             <Link className="nav-item nav-link pt-4" to="/profile">
               Saved Workouts
             </Link>
-            <a type="button" href="" className="nav-item nav-link pt-4" onClick={logout}>
+            <a type="button" href="/" className="nav-item nav-link pt-4" onClick={logout}>
               Logout
             </a>
           </div>
