@@ -1,21 +1,27 @@
-import React from "react";
-import Cookies from "js-cookie";
+import React, { useState, useContext, useEffect} from "react";
 import BodyContext from "../../utils/BodyContext";
+import API from "../../utils/API"
 
 const Profile = () => {
+  const {userState} = useContext(BodyContext)
 
-  const logout = () => {
-    Cookies.remove("user");
-    BodyContext.setAuth(false);
-  };
+  const userId = userState._id
+  const [userWorkouts, setUserWorkouts] = useState()
+
+
+  useEffect(() => {
+    console.log(userId)
+    API.getUserWorkouts(userId)
+    .then(r => {
+      console.log(r)
+    })
+}, [])
 
   return (
     <>
       <h1>Saved Workouts:</h1>
       
-      <button className="btn btn-primary" onClick={logout}>
-        logout
-      </button>
+      
     </>
   );
 };

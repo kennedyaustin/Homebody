@@ -1,21 +1,28 @@
-.logoHouse,
-.bicepLeft,
-.bicepRight {
-  width: 50px;
-  height: 50px;
-}
-
 .logoHouseLogin {
-  
+  width: 100px;
+  height: 100px;
+  position: relative;
+  padding: 0;
+  margin: 0;
 }
 
 .bicepLeftLogin {
   animation: logo-flex infinite 4s ease-in-out;
+  width: 130px;
+  height: 130px;
+  position: relative;
+  margin-left: -120px;
+  margin-top: -20px;
 }
 
 .bicepRightLogin {
   animation: logo-flex-reverse infinite 4s ease-in-out;
-}
+  width: 130px;
+  height: 130px;
+  position: relative;
+  margin-right: -120px;
+  margin-top: -20px;
+} 
 
 .textColor {
   color: white;
@@ -55,7 +62,7 @@
 }
 
 /* use this animation for the left-bicep (right arm on screen) */
-@keyframes logo-flex {
+ @keyframes logo-flex {
   0% {
     transform: rotate(0deg);
   }
@@ -90,4 +97,16 @@
   100% {
     transform: rotate(0degs);
   }
-}
+} 
+
+/* @media only screen and (max-width: 476px) {
+  
+  .plzMove {
+    margin-right: 18px;
+  }
+  
+  .plzMove1 {
+    margin-right: 30px;
+  }
+
+} */
