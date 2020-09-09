@@ -1,17 +1,14 @@
 import React, { Component } from "react";
-import SocialLogin from "react-social-login";
 // import style from "./style.css";
 
-class SocialButton extends Component {
-  render() {
-    return (
-      <div className="text-center social-btn">
-        <button className="btn" onClick={this.props.triggerLogin}>
-          {this.props.children}
-        </button>
-      </div>
-    );
-  }
-}
+const SocialButton = (props) => {
+  return (
+    <div className="text-center social-btn">
+      <a href={`/api/auth/${props.provider}`} className="btn">
+        {props.children}
+      </a>
+    </div>
+  );
+};
 
-export default SocialLogin(SocialButton);
+export default SocialButton;

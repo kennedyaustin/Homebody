@@ -1,35 +1,22 @@
 const db = require("../models/users");
-const passport = require('passport')
+const passport = require("passport");
 
 module.exports = {
-    // Google Auth Routes ------------------
-    googleLogin: passport.authenticate("google", {
-            scope: [
-                "profile", "email"
-            ]
-     })
-    ,
-    googleCallback: passport.authenticate( 'google', { 
-            successRedirect: '/auth/google/success',
-            failureRedirect: '/auth/google/failure'
-    })
-    ,
+  // Google Auth Routes ------------------
+  googleLogin: passport.authenticate("google", {
+    scope: ["profile", "email"],
+    prompt: "select_account",
+  }),
+  googleCallback: passport.authenticate("google"),
 
-    googleSuccess: function(req, res) {
-        res.json("success google")
-    },
+  // Facebook Auth Routes ---------------
+  facebookLogin: passport.authenticate("facebook", {
+    authType: "reauthenticate",
+  }),
+  facebookCallback: passport.authenticate("facebook"),
 
-    googleFailure: function(req, res) {
-        res.json("failure google")
-    },
-
-    // Facebook Auth Routes ---------------
-    facebookLogin: function(req, res) {
-        passport.authenticate("facebook")
-    },
-    facebookCallback: function(req, res) {
-        res.json(req.body)
-    },
-
-  };
-  
+  logout: (req, res) => {
+    req.logout();
+    res.redirect("/");
+  },
+};

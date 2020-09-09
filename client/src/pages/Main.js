@@ -3,6 +3,7 @@ import {
   Route,
   Switch,
   Redirect,
+  BrowserRouter as Router,
 } from "react-router-dom";
 import Home from "../components/Home/Home";
 import Profile from "../components/Profile/Profile";
@@ -14,16 +15,17 @@ function Main() {
   const bodyContext = useContext(BodyContext);
 
   if (!bodyContext.authState) {
-    return <Redirect to="/login" />;
+    return <Redirect to="/" />;
   }
 
   return (
     <>
       <Navbar />
       <Switch>
-        <Route exact path="/profile" component={Profile} />
-        <Route exact path="/workout" component={WorkoutCard} />
-        <Route component={Home} />
+        <Route exact path="/home/profile" component={Profile} />
+        <Route exact path="/home/workout" component={WorkoutCard} />
+        <Route exact path="/home" component={Home} />
+        <Route path="*" component={() => "404 NOT FOUND"} />
       </Switch>
     </>
   );
