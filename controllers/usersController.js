@@ -8,8 +8,8 @@ module.exports = {
   },
   findById: function (req, res) {
     db.findOne({ _id: req.params.id }) // replace with your user _id for now
-      .populate('Workouts')
-      .populate('Exercises')
+      .populate("Workouts")
+      .populate("Exercises")
       .then((dbModel) => res.json(dbModel))
       .catch((err) => res.status(422).json(err));
   },
@@ -54,5 +54,8 @@ module.exports = {
       .then((dbModel) => dbModel.remove())
       .then((dbModel) => res.json(dbModel))
       .catch((err) => res.status(422).json(err));
+  },
+  getCurrentUser: function (req, res) {
+    res.json(req.user);
   },
 };

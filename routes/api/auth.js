@@ -1,38 +1,22 @@
 const router = require("express").Router();
 const authController = require("../../controllers/authController");
-const passport = require("passport")
 
-router.route("/google")
-  .get(passport.authenticate("google", {
-    scope: [
-        "profile", "email"
-    ]
-}))
+router.route("/google").get(authController.googleLogin);
 
-router.route('/google/callback')
-.get(passport.authenticate( 'google', { 
-    successRedirect: '/auth/google/success',
-    failureRedirect: '/auth/google/failure'
-}))
+router
+  .route("/google/callback")
+  .get(authController.googleCallback, (req, res) => {
+    res.redirect("/home");
+  });
 
-router.route("/google/success")
-  .get(function(req, res) {
-    res.json("success google")
-    },)
+router.route("/facebook/").get(authController.facebookLogin);
 
-router.route('/google/failure')
-.get(function(req, res) {
-    res.json("success failure")
-    })
+router
+  .route("/facebook/callback")
+  .get(authController.facebookCallback, (req, res) => {
+    res.redirect("/home");
+  });
 
-router.route("/facebook/")
-.get(function(req, res) {
-    res.json("success facebook")
-    },)
-
-router.route("/facebook/callback")
-.get(function(req, res) {
-    res.json("facebook callback")
-})
+router.route("/logout").get(authController.logout);
 
 module.exports = router;

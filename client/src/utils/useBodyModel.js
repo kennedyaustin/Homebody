@@ -1,7 +1,7 @@
 import { useState } from "react";
 
 const useBodyModel = () => {
-  const [authState, setAuth] = useState(false);
+  const [authState, setAuth] = useState(null);
 
   const [userState, setUser] = useState({});
 
@@ -23,13 +23,21 @@ const useBodyModel = () => {
         name: "Core",
         selected: false,
       },
-    ]
+    ],
   });
 
-  const [workout, setWorkout] = useState([])
+  const [workout, setWorkout] = useState([]);
 
-
-  return { authState, setAuth, userState, setUser, targets, setTargets, workout, setWorkout };
+  return {
+    authState,
+    setAuth,
+    userState,
+    setUser,
+    targets,
+    setTargets,
+    workout,
+    setWorkout,
+  };
 };
 
 export default useBodyModel;
