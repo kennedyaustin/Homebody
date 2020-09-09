@@ -47,8 +47,9 @@ const Navbarhome = () => {
             </Link>
             <a
               type="button"
-              href="/api/auth/logout"
+              href="/home"
               className="nav-item nav-link pt-4"
+              onClick={()=>API.logoutUser().then(r => {console.log(r)})}
             >
               Logout
             </a>
