@@ -14,6 +14,13 @@ const Navbarhome = () => {
     : "https://via.placeholder.com/96x96";
   const history = useHistory();
 
+  const logout = () => {
+    API.logoutUser().then((resp) => {
+      setAuth(false);
+      history.push("/");
+    });
+  };
+
   return (
     <Navbar className="navbar navbar-custom navbar-dark" expand="lg">
       <Link to="/home">
@@ -47,9 +54,8 @@ const Navbarhome = () => {
             </Link>
             <a
               type="button"
-              href="/home"
               className="nav-item nav-link pt-4"
-              onClick={()=>API.logoutUser().then(r => {console.log(r)})}
+              onClick={logout}
             >
               Logout
             </a>
