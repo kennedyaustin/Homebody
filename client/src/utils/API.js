@@ -1,8 +1,8 @@
 import axios from "axios";
 
 export default {
-  googleLogin: () => axios.get("/api/auth/google"),
-  facebookLogin: () => axios.get("/api/auth/facebook"),
+  googleLogin: () => window.location.replace("/api/auth/google"),
+  facebookLogin: () => window.location.replace("/api/auth/facebook"),
 
   getUser: () => axios.post("/api/users/currentUser"),
   logoutUser: () => axios.post("/api/auth/logout"),
