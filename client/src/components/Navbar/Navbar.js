@@ -42,7 +42,7 @@ const Navbarhome = () => {
             <Link className="nav-item nav-link pt-4 nameColor" to="/home">
               Home <span className="sr-only">(current)</span>
             </Link>
-            <Link className="nav-item nav-link pt-4" to="/home/workout">
+            <Link className="nav-item nav-link pt-4" to="/home/profile">
               Saved Workouts
             </Link>
             <a
