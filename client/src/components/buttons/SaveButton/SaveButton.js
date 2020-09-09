@@ -20,7 +20,7 @@ const SaveButton = () => {
     }
 
     return (
-        <Link className="btn btn-secondary btn-md ml-2" onClick={handleSave} to="/profile">
+        <Link className="btn btn-secondary btn-md ml-2" onClick={handleSave} to="/home/profile">
             Save Workout
             <img
                 className="mb-1 pl-1"

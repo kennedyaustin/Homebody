@@ -120,19 +120,19 @@ function SubmitButton() {
             switch (targetArr.length) {
                 case 1:
                     oneTarget(data)
-                    history.push('/workout')
+                    history.push('/home/workout')
                     break;
                 case 2:
                     twoTargets(data, targetArr)
-                    history.push('/workout')
+                    history.push('/home/workout')
                     break;
                 case 3:
                     threeTargets(data, targetArr)
-                    history.push('/workout')
+                    history.push('/home/workout')
                     break;
                 case 4:
                     fourTargets(data, targetArr)
-                    history.push('/workout')
+                    history.push('/home/workout')
                     break;
                 default:
                     console.log('Something went wrong.')
