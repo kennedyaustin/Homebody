@@ -17,6 +17,6 @@ router
     res.redirect("/home");
   });
 
-router.route("/logout").get(authController.logout);
+router.route("/logout").post(authController.logout);
 
 module.exports = router;
