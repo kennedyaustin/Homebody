@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 import BodyContext from '../../../utils/BodyContext';
 import API from '../../../utils/API';
 
-const Delete = () => {
+const DeleteButton = () => {
 
     const { workout, userState } = useContext(BodyContext)
 
