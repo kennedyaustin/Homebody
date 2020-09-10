@@ -17,7 +17,7 @@ function App() {
             <Switch>
               <Route exact path="/" component={Login} />
               <ProtectedRoute path="/home" component={Main} />
-              <Route path="*" component={() => "404 NOT FOUND"} />
+              <Route path="*" component={() => <h1 className="text-center text-white">404 NOT FOUND...buddy</h1>} />
             </Switch>
           </LastLocationProvider>
         </Router>
