@@ -1,30 +1,38 @@
-const db = require("../models/users");
+const db = require("../models");
 
 module.exports = {
   findAll: function (req, res) {
-    db.find(req.query)
+    db.Users
+      .find(req.query)
       .then((dbModel) => res.json(dbModel))
       .catch((err) => res.status(422).json(err));
   },
   findById: function (req, res) {
-    db.findOne({ _id: req.params.id }) // replace with your user _id for now
-      .populate("Workouts")
-      .populate("Exercises")
-      .then((dbModel) => res.json(dbModel))
+
+    db.Users
+    .findOne({ _id: req.params.id })
+      .populate({path: 'savedWorkouts', model: 'Workouts', populate: {path: 'workout', model: 'Exercises'}}) 
+      .then((dbModel) => {
+        
+        res.json(dbModel)
+      })
       .catch((err) => res.status(422).json(err));
   },
   postById: function (req, res) {
-    db.findOne({ email: req.body.email })
+    db.Users
+      .findOne({ email: req.body.email })
       .then((dbModel) => res.json(dbModel))
       .catch((err) => res.status(422).json(err));
   },
   login: function (req, res) {
-    db.findOne({
+    db.Users
+    .findOne({
       email: req.body.email,
     })
       .then((dbModel) => {
         if (!dbModel) {
-          db.create({
+          db.Users
+          .create({
             firstName: req.body.firstName,
             lastName: req.body.lastName,
             email: req.body.email,
@@ -45,12 +53,14 @@ module.exports = {
       });
   },
   update: function (req, res) {
-    db.findOneAndUpdate({ _id: req.params.id }, req.body)
+    db.Users
+      .findOneAndUpdate({ _id: req.params.id }, req.body)
       .then((dbModel) => res.json(dbModel))
       .catch((err) => res.status(422).json(err));
   },
   remove: function (req, res) {
-    db.findById({ _id: req.params.id })
+    db.Users
+      .findById({ _id: req.params.id })
       .then((dbModel) => dbModel.remove())
       .then((dbModel) => res.json(dbModel))
       .catch((err) => res.status(422).json(err));

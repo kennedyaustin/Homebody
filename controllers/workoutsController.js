@@ -18,12 +18,11 @@ module.exports = {
       .create({})
       .then(dbModel => 
         {
+          console.log({dbModel, body: req.body})
           db.Workouts.updateOne({_id: dbModel._id}, {workout: req.body})
           .then(results => {
-            console.log(results)
-            console.log(dbModel)
-            db.Users.updateOne({_id: req.params.id}, {$push: {savedWorkouts: dbModel._id}}) // replace with your user _id for now
-            .then(r => res.json(r)) //req.session.userId or something like that
+            db.Users.updateOne({_id: req.user._id}, {$push: {savedWorkouts: dbModel._id}}) 
+            .then(r => res.json(r)) 
           })
           
         })

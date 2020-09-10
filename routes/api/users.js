@@ -10,6 +10,7 @@ router.route("/currentUser").post(usersController.getCurrentUser);
 router
   .route("/:id")
   .get(usersController.findById)
+  //.post(usersController.findAndPopulate)
   .put(usersController.update)
   .delete(usersController.remove);
 

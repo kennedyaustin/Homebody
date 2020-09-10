@@ -1,7 +1,8 @@
 const router = require("express").Router();
 const authController = require("../../controllers/authController");
 
-router.route("/google").get(authController.googleLogin);
+router.route("/google").post(authController.googleLogin);
+//router.route("/google").post(authController.googleLogin);
 
 router
   .route("/google/callback")
@@ -9,7 +10,7 @@ router
     res.redirect("/home");
   });
 
-router.route("/facebook/").get(authController.facebookLogin);
+router.route("/facebook/").post(authController.facebookLogin);
 
 router
   .route("/facebook/callback")

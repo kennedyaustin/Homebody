@@ -1,11 +1,11 @@
 const router = require("express").Router();
 const workoutsController = require("../../controllers/workoutsController");
 
-// Get and Post for "/api/books"
+// Get and Post for "/api/workouts"
 router.route("/")
   .get(workoutsController.findAll)
   
-  // Get Put and Delete for "/api/books/:id"
+  // Get Put and Delete for "/api/workouts/:id"
   router
   .route("/:id")
   .post(workoutsController.create)

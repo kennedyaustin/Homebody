@@ -10,7 +10,9 @@ const Profile = () => {
   useEffect(() => {
     if (userId) {
       API.getUserWorkouts(userId).then((r) => {
-        console.log(r);
+        const savedWorkouts = r.data.savedWorkouts
+        setUserWorkouts(savedWorkouts);
+        console.log(userWorkouts)
       });
     }
   }, [userId]);
@@ -18,6 +20,16 @@ const Profile = () => {
   return (
     <>
       <h1>Saved Workouts:</h1>
+      {/* 
+        userWorkouts.map(w => {
+          <SavedWorkoutCard 
+          date={}
+          exercise={}
+          description={}
+          alternatives={}
+          />
+        })
+      */}
     </>
   );
 };
