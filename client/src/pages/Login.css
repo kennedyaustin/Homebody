@@ -6,6 +6,10 @@
   margin: 0;
 }
 
+h1, .card-header {
+  font-family: "couture";
+}
+
 .bicepLeftLogin {
   animation: logo-flex infinite 4s ease-in-out;
   width: 130px;
@@ -97,7 +101,13 @@
   100% {
     transform: rotate(0degs);
   }
-} 
+}
+
+@font-face {
+  font-family: "couture";
+  src: url("./couture.otf");
+
+}
 
 /* @media only screen and (max-width: 476px) {
   
