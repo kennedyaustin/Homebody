@@ -6,7 +6,7 @@ import { Card } from "react-bootstrap";
 function SavedWorkoutCard({ date, exercises }) {
   return (
     <>
-      <Card className="col-12 col-md-5 bg-dark text-light m-md-4">
+      <Card className="col-12 col-md-6 col-lg-5 bg-dark text-light m-lg-4 my-md-4">
         <Card.Body>
           <Card.Title>{date}</Card.Title>
           {exercises.map(e => {
@@ -32,10 +32,13 @@ function SavedWorkoutCard({ date, exercises }) {
               <hr className="border-light" />
             </div>)
           })}
-
-          <div className="text-center">
-            <NewWorkoutButton />
-            <DeleteButton />
+          <div className="row no-gutters d-flex justify-content-center">
+            <div className="col-6">
+              <NewWorkoutButton />
+            </div>
+            <div className="col-6">
+              <DeleteButton />
+            </div>
           </div>
         </Card.Body>
       </Card>

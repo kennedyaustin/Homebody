@@ -10,7 +10,7 @@ const NewWorkoutButton = () => {
                 src="/arrow-204.png" 
                 alt="New Workout"
                 />
-            New Workout
+            Create Workout
         </Link>
     )
 }
