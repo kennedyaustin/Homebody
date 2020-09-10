@@ -1,11 +1,11 @@
 import axios from "axios";
 
 export default {
-  // googleLogin: () => window.location.replace("/api/auth/google"),
-  // facebookLogin: () => window.location.replace("/api/auth/facebook"),
+  googleLogin: () => window.location.replace("/api/auth/google"),
+  facebookLogin: () => window.location.replace("/api/auth/facebook"),
 
-  googleLogin: () => axios.post('/api/auth/google'),
-  facebookLogin: () => axios.post('/api/auth/facebook'),
+  // googleLogin: () => axios.post('/api/auth/google'),
+  // facebookLogin: () => axios.post('/api/auth/facebook'),
  
   getUser: () => axios.post("/api/users/currentUser"),
   logoutUser: () => axios.post("/api/auth/logout"),

@@ -15,12 +15,13 @@ passport.deserializeUser((id, done) => {
   });
 });
 
+
 passport.use(
   new GoogleStrategy(
     {
       clientID: process.env.GOOGLE_CLIENT_ID,
       clientSecret: process.env.GOOGLE_CLIENT_SECRET,
-      callbackURL: "/api/auth/google/callback",
+      callbackURL: process.env.NODE_ENV === "production" ? "https://homebody-fitness.herokuapp.com/api/auth/google/callback": "http://localhost:3000/api/auth/google/callback",
       proxy: true,
     },
     (accessToken, refreshToken, profile, cb) => {
@@ -57,7 +58,7 @@ passport.use(
     {
       clientID: process.env.FACEBOOK_CLIENT_ID,
       clientSecret: process.env.FACEBOOK_CLIENT_SECRET,
-      callbackURL: "/api/auth/facebook/callback",
+      callbackURL: process.env.NODE_ENV === "production" ? "https://homebody-fitness.herokuapp.com/api/auth/facebook/callback": "http://localhost:3000/api/auth/facebook/callback",
       profileFields: ["id", "displayName", "photos", "email", "name"],
       auth_type: "reauthenticate",
       proxy: true,

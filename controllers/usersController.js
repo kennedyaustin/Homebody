@@ -24,34 +24,6 @@ module.exports = {
       .then((dbModel) => res.json(dbModel))
       .catch((err) => res.status(422).json(err));
   },
-  login: function (req, res) {
-    db.Users
-    .findOne({
-      email: req.body.email,
-    })
-      .then((dbModel) => {
-        if (!dbModel) {
-          db.Users
-          .create({
-            firstName: req.body.firstName,
-            lastName: req.body.lastName,
-            email: req.body.email,
-            profileImage: req.body.profilePicURL,
-          })
-            .then((dbUser) => {
-              res.send(dbUser);
-            })
-            .catch((err) => {
-              res.json(err);
-            });
-        } else {
-          res.send(dbModel);
-        }
-      })
-      .catch((err) => {
-        res.json(err);
-      });
-  },
   update: function (req, res) {
     db.Users
       .findOneAndUpdate({ _id: req.params.id }, req.body)

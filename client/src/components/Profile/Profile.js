@@ -5,17 +5,19 @@ import API from "../../utils/API";
 const Profile = () => {
   const { userState } = useContext(BodyContext);
   const userId = userState._id;
-  const [userWorkouts, setUserWorkouts] = useState();
+  const [userWorkouts, setUserWorkouts] = useState([]);
 
   useEffect(() => {
     if (userId) {
       API.getUserWorkouts(userId).then((r) => {
         const savedWorkouts = r.data.savedWorkouts
         setUserWorkouts(savedWorkouts);
-        console.log(userWorkouts)
+        console.log("user workouts: " , userWorkouts)
+        console.log("saved workouts: ", savedWorkouts)
       });
     }
   }, [userId]);
+  console.log("outside: ", userWorkouts)
 
   return (
     <>
