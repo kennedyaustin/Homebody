@@ -1,26 +1,33 @@
-import React, { useContext } from 'react'
-import { Link } from "react-router-dom";
-import BodyContext from '../../../utils/BodyContext';
-import API from '../../../utils/API';
+import React from 'react'
+import ConfirmDeleteModal from '../../ConfirmDeleteModal/ConfirmDeleteModal';
+import { Button } from 'react-bootstrap';
 
-const DeleteButton = () => {
+const DeleteButton = ({id}) => {
 
-    const { workout, userState } = useContext(BodyContext)
+    const [modalShow, setModalShow] = React.useState(false);
 
-    const handleDelete = e => {
-        
-        console.log('Deleted')
+    const handleClick = e => {
+        return (
+            setModalShow(true)
+        )
     }
 
     return (
-        <Link className="btn btn-danger btn-md ml-2" onClick={handleDelete} to="/profile">
-            Delete Workout
-            <img
-                className="mb-1 pl-1"
-                src="/arrow-203.png" 
-                alt="Delete Workout"
+        <>
+            <ConfirmDeleteModal 
+            show={modalShow}
+            onHide={() => setModalShow(false)}
+            id={id}
+            />
+            <Button className="btn btn-danger btn-md ml-2" onClick={handleClick}>
+                Delete Workout
+                <img
+                    className="mb-1 pl-1"
+                    src="/arrow-203.png"
+                    alt="Delete Workout"
                 />
-        </Link>
+            </Button>
+        </>
     )
 }
 

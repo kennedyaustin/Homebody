@@ -14,6 +14,6 @@ export default {
   // create workouts based off selected exercises
   createWorkout: (id, body) => axios.post("/api/workouts/" + id, body),
   // remove selected workout
-  removeWorkout: (body) => axios.post("/api/workouts/", body),
+  removeWorkout: (id) => axios.delete("/api/workouts/" + id),
   getUserWorkouts: (id) => axios.get("/api/users/" + id),
 };

@@ -1,6 +1,6 @@
-import React, { Component } from "react";
+import React from "react";
 import API from "../../../utils/API";
-// import style from "./style.css";
+
 const SocialButton = (props) => {
   const googleClick = () => {
     API.googleLogin();
