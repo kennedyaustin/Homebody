@@ -1,6 +1,5 @@
 import React, { useContext } from "react";
 import BodyContext from "../../utils/BodyContext";
-import Cookies from "js-cookie";
 import "./style.css";
 import { Link, useHistory } from "react-router-dom";
 import { Navbar, Nav } from "react-bootstrap";
@@ -53,6 +52,7 @@ const Navbarhome = () => {
               Saved Workouts
             </Link>
             <a
+              href="#"
               type="button"
               className="nav-item nav-link pt-4"
               onClick={logout}

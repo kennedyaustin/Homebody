@@ -1,7 +1,19 @@
-import React from 'react'
+import React, { useContext } from 'react'
 import { Modal, Button } from 'react-bootstrap';
+import API from '../../utils/API'
+import BodyContext from '../../utils/BodyContext';
 
 function ConfirmDeleteModal(props) {
+    const { userWorkouts, setUserWorkouts } = useContext(BodyContext);
+
+    const handleDelete = event => {
+        const workoutId = event.target.attributes.getNamedItem("data-value").value
+        const newWorkouts = userWorkouts.filter(workout => workout._id !== workoutId)
+        setUserWorkouts(newWorkouts)
+        API.removeWorkout(workoutId)
+        .then(r => props.onHide())
+    }
+
     return (
 
         <Modal
@@ -23,7 +35,7 @@ function ConfirmDeleteModal(props) {
             <Modal.Footer className="row d-flex justify-content-center text-center">
                 <div className="col-10 col-md-8 offset-1 offset-md-2 row">
                     <div className="col-6">
-                        <Button className="btn btn-danger" onClick={() => console.log(props.id)}>Delete</Button>
+                        <Button className="btn btn-danger" data-value={props.id} onClick={handleDelete}>Delete</Button>
                     </div>
                     <div className="col-6">
                         <Button className="btn btn-primary" onClick={props.onHide}>Close</Button>

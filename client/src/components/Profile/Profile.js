@@ -1,22 +1,24 @@
-import React, { useState, useContext, useEffect } from "react";
+import React, { useContext, useEffect } from "react";
 import BodyContext from "../../utils/BodyContext";
 import API from "../../utils/API";
 import SavedWorkoutCard from "../SavedWorkoutCard/SavedWorkoutCard";
 
 const Profile = () => {
-  const { userState } = useContext(BodyContext);
+  const { userState, userWorkouts, setUserWorkouts } = useContext(BodyContext);
   const userId = userState._id;
-  const [userWorkouts, setUserWorkouts] = useState([]);
+  // const [userWorkouts, setUserWorkouts] = useState([]);
+
 
   useEffect(() => {
-    if (userId) {
-      API.getUserWorkouts(userId).then((r) => {
-        const savedWorkouts = r.data.savedWorkouts
-        setUserWorkouts(savedWorkouts);
+      if (userId) {
+        API.getUserWorkouts(userId).then(r => {
+          const savedWorkouts = r.data.savedWorkouts
+          console.log("savedWorkouts: ", r)
+          setUserWorkouts(savedWorkouts);
 
-      });
-    }
-  }, [userId]);
+        });
+      }
+  }, [userState]);
   console.log("userWorkouts hook: ", userWorkouts)
 
   return (
@@ -31,7 +33,11 @@ const Profile = () => {
               exercises={w.workout}
             />)
           })
-          : <h1 className="text-center text-muted">You have no saved workouts. Go back to the home page to create one!</h1>
+          : <>
+            <div className="container mt-4">
+              <h3 className="text-center text-light">You have no saved workouts. Go back to the <a href="/home">home page</a> to create one!</h3>
+            </div>
+          </>
         }
       </div>
     </div>

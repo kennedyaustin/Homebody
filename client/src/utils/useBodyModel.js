@@ -28,6 +28,8 @@ const useBodyModel = () => {
 
   const [workout, setWorkout] = useState([]);
 
+  const [userWorkouts, setUserWorkouts] = useState([]);
+
   return {
     authState,
     setAuth,
@@ -37,6 +39,8 @@ const useBodyModel = () => {
     setTargets,
     workout,
     setWorkout,
+    userWorkouts,
+    setUserWorkouts
   };
 };
 
