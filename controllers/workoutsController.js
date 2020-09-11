@@ -18,7 +18,6 @@ module.exports = {
       .create({})
       .then(dbModel => 
         {
-          console.log({dbModel, body: req.body})
           db.Workouts.updateOne({_id: dbModel._id}, {workout: req.body})
           .then(results => {
             db.Users.updateOne({_id: req.user._id}, {$push: {savedWorkouts: dbModel._id}}) 

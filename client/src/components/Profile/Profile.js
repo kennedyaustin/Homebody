@@ -1,6 +1,7 @@
 import React, { useState, useContext, useEffect } from "react";
 import BodyContext from "../../utils/BodyContext";
 import API from "../../utils/API";
+import SavedWorkoutCard from "../SavedWorkoutCard/SavedWorkoutCard";
 
 const Profile = () => {
   const { userState } = useContext(BodyContext);
@@ -12,27 +13,27 @@ const Profile = () => {
       API.getUserWorkouts(userId).then((r) => {
         const savedWorkouts = r.data.savedWorkouts
         setUserWorkouts(savedWorkouts);
-        console.log("user workouts: " , userWorkouts)
-        console.log("saved workouts: ", savedWorkouts)
+
       });
     }
   }, [userId]);
-  console.log("outside: ", userWorkouts)
+  console.log("userWorkouts hook: ", userWorkouts)
 
   return (
-    <>
-      <h1>Saved Workouts:</h1>
-      {/* 
-        userWorkouts.map(w => {
-          <SavedWorkoutCard 
-          date={}
-          exercise={}
-          description={}
-          alternatives={}
-          />
-        })
-      */}
-    </>
+    <div className="container-fluid">
+      <div className="row d-flex justify-content-center mt-4">
+        {userWorkouts.length ?
+          userWorkouts.map(w => {
+            return (<SavedWorkoutCard
+              key={w._id}
+              date={w.created}
+              exercises={w.workout}
+            />)
+          })
+          : <h1 className="text-center text-muted">You have no saved workouts. Go back to the home page to create one!</h1>
+        }
+      </div>
+    </div>
   );
 };
 
