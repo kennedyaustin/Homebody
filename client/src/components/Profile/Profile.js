@@ -26,6 +26,7 @@ const Profile = () => {
           userWorkouts.map(w => {
             return (<SavedWorkoutCard
               key={w._id}
+              id={w._id}
               date={w.created}
               exercises={w.workout}
             />)
