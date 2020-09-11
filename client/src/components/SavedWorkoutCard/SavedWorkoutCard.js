@@ -10,7 +10,6 @@ function SavedWorkoutCard({ date, exercises }) {
       <Card className="col-12 col-md-6 col-lg-5 bg-dark text-light m-lg-4 my-md-4">
         <Card.Body>
           <Card.Title>{'Created on ' + dayjs(date).format('MM/DD/YYYY') + ' at ' + dayjs(date).format('hh:mm a')}</Card.Title>
-          <Card.Title>{}</Card.Title>
           {exercises.map(e => {
             return (<div key={e._id}>
               <Card.Subtitle className="my-2 text-muted">
