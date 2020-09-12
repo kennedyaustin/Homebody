@@ -26,6 +26,7 @@
     "dotenv": "^8.2.0",
     "express": "^4.17.1",
     "if-env": "^1.0.4",
+    "moment": "^2.27.0",
     "mongoose": "^5.10.0",
     "passport": "^0.4.1",
     "passport-facebook": "^3.0.0",

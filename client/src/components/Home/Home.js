@@ -4,13 +4,13 @@ import MuscleChoice from "../MuscleChoice/MuscleChoice";
 import SubmitButton from "../buttons/SubmitButton/SubmitButton";
 import Instructions from "../Instructions/Instructions";
 
+/*  */
+
 const Home = () => {
   const bodyContext = useContext(BodyContext);
-
   return (
     <>
-         <Instructions />
-      
+      <Instructions />
       <div className="container page">
         <div className="row">
           {bodyContext.targets.options.map((t) => (
