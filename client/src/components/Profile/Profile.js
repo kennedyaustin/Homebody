@@ -2,7 +2,6 @@ import React, { useContext, useEffect } from "react";
 import BodyContext from "../../utils/BodyContext";
 import API from "../../utils/API";
 import SavedWorkoutCard from "../SavedWorkoutCard/SavedWorkoutCard";
-import SavedWorkoutTab from '../Tabs/Tabs'
 
 const Profile = () => {
   const { userState, userWorkouts, setUserWorkouts } = useContext(BodyContext);
@@ -24,13 +23,7 @@ const Profile = () => {
       <div className="row d-flex justify-content-center mt-4">
         {userWorkouts.length ?
           userWorkouts.map(w => {
-            return (
-            // <SavedWorkoutTab
-            //   key={w._id}
-            //   id={w._id}
-            //   date={w.created}
-            //   exercises={w.workout}/>
-            
+            return (            
             <SavedWorkoutCard
               key={w._id}
               id={w._id}

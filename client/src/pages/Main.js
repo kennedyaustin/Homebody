@@ -10,6 +10,7 @@ import Navbar from "../components/Navbar/Navbar.js";
 import BodyContext from "../utils/BodyContext";
 import WorkoutCard from "../components/WorkoutCard/WorkoutCard";
 import { CSSTransition, TransitionGroup} from 'react-transition-group';
+import './Main.css'
 
 
 function Main() {
@@ -22,15 +23,20 @@ function Main() {
   return (
     <>
       <Navbar />
-      <TransitionGroup>
-          <CSSTransition>
-            <Switch>
-              <Route exact path="/home/profile" component={Profile} />
-              <Route exact path="/home/workout" component={WorkoutCard} />
-              <Route exact path="/home" component={Home} />
-            </Switch>
-          </CSSTransition>
-      </TransitionGroup>
+      <Route render={({location}) => (
+        <TransitionGroup>
+            <CSSTransition
+            key={location.key}
+            timeout={450}
+            classNames="fade">
+              <Switch location={location}>
+                <Route exact path="/home/profile" component={Profile} />
+                <Route exact path="/home/workout" component={WorkoutCard} />
+                <Route exact path="/home" component={Home} />
+              </Switch>
+            </CSSTransition>
+        </TransitionGroup>
+      )} />
     </>
   );
 }

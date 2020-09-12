@@ -15,8 +15,9 @@ const SaveButton = () => {
             workoutBody.push(workout[i]._id)
         }
         API.createWorkout(workoutBody)
-        .then(results => console.log(results))
-        
+        .then(results => {
+            console.log(results)
+        })  
     }
 
     return (
