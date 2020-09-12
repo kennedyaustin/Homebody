@@ -1,5 +1,7 @@
 const mongoose = require('mongoose')
 const Schema = mongoose.Schema
+
+//create Exercises schema
 const exercisesSchema = new Schema({
     
     exerciseName: {
@@ -18,5 +20,9 @@ const exercisesSchema = new Schema({
         type: Array,
     }]
 })
+
+//create Exercises model
 const Exercises = mongoose.model("Exercises", exercisesSchema)
+
+//export model
 module.exports = Exercises

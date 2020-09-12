@@ -24,10 +24,11 @@ const Navbarhome = () => {
     <Navbar className="navbar navbar-custom navbar-dark" expand="lg">
       <Link to="/home">
         <Navbar.Brand>
-          <div>
+          <div className= "Moves">
             <img src="/house-light.png" className="logoHouse" alt=""></img>
             <img src="/muscle1-light.png" className="bicepLeft" alt=""></img>
             <img src="/muscle2-light.png" className="bicepRight" alt=""></img>
+            <span className="ml-4 h2 d-none d-md-inline navLogoText">Homebody Fitness</span>
           </div>
         </Navbar.Brand>
       </Link>
@@ -36,15 +37,15 @@ const Navbarhome = () => {
       <Navbar.Collapse id="basic-navbar-nav">
         <Nav className="ml-auto">
           <div className="navbar-nav">
-            <Link className="navbar-brand mt-1 mr-2" to="/home/profile">
+            <span
+              className="pt-4 mr-4 nameColor"
+            >
+              Hello, <span><strong className="text-light">{userName}</strong></span> !
+            </span>
+            <Link className="navbar-brand mt-1 mr-4" to="/home/profile">
               <img className="profilePic" src={profileImage} alt=""></img>
             </Link>
-            <Link
-              className="nav-item nav-link pt-4 pr-2 nameColor"
-              to="/home/profile"
-            >
-              {userName}
-            </Link>
+            
             <Link className="nav-item nav-link pt-4 nameColor" to="/home">
               Home <span className="sr-only">(current)</span>
             </Link>

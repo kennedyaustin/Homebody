@@ -2,36 +2,42 @@ import React, { useContext, useEffect } from "react";
 import BodyContext from "../../utils/BodyContext";
 import API from "../../utils/API";
 import SavedWorkoutCard from "../SavedWorkoutCard/SavedWorkoutCard";
+import SavedWorkoutTab from '../Tabs/Tabs'
 
 const Profile = () => {
   const { userState, userWorkouts, setUserWorkouts } = useContext(BodyContext);
   const userId = userState._id;
-  // const [userWorkouts, setUserWorkouts] = useState([]);
-
 
   useEffect(() => {
+    (async () => {
       if (userId) {
-        API.getUserWorkouts(userId).then(r => {
+        API.getUserWorkouts().then(r => {
           const savedWorkouts = r.data.savedWorkouts
-          console.log("savedWorkouts: ", r)
           setUserWorkouts(savedWorkouts);
-
         });
       }
+    })()
   }, [userState]);
-  console.log("userWorkouts hook: ", userWorkouts)
 
   return (
-    <div className="container-fluid">
+    <div className="container-fluid page">
       <div className="row d-flex justify-content-center mt-4">
         {userWorkouts.length ?
           userWorkouts.map(w => {
-            return (<SavedWorkoutCard
+            return (
+            // <SavedWorkoutTab
+            //   key={w._id}
+            //   id={w._id}
+            //   date={w.created}
+            //   exercises={w.workout}/>
+            
+            <SavedWorkoutCard
               key={w._id}
               id={w._id}
               date={w.created}
               exercises={w.workout}
-            />)
+            />
+            )
           })
           : <>
             <div className="container mt-4">
@@ -41,6 +47,7 @@ const Profile = () => {
         }
       </div>
     </div>
+    
   );
 };
 

@@ -14,7 +14,7 @@ const SaveButton = () => {
         for (let i=0; i < n; i++){
             workoutBody.push(workout[i]._id)
         }
-        API.createWorkout(userId, workoutBody)
+        API.createWorkout(workoutBody)
         .then(results => console.log(results))
         
     }
