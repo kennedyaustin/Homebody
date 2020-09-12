@@ -37,6 +37,13 @@ module.exports = {
     db.Workouts
       .findById({ _id: req.params.id })
       .then(dbModel => dbModel.remove())
+      .then(db.Users.findById({ _id: req.user._id})
+        .then(model => model.savedWorkouts
+          .remove({ _id: req.params.id})
+          .then(r => console.log(r))
+          .catch(err => res.status(422).json(err))
+        )
+      )
       .then(dbModel => res.json(dbModel))
       .catch(err => res.status(422).json(err));
   }
