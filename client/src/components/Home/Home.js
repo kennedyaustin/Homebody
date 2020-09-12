@@ -7,7 +7,7 @@ const Home = () => {
   const bodyContext = useContext(BodyContext);
 
   return (
-    <div className="container">
+    <div className="container page">
       <div className="row">
         {bodyContext.targets.options.map((t) => (
           <div key={t.name} className="col-6 col-md-3 mt-4">

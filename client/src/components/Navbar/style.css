@@ -7,6 +7,8 @@
     width: 55px;
     height: 55px;
     border-radius: 50%;
+    margin: 0;
+    padding: -10px 0;
 }
 
 .nameColor {
@@ -17,6 +19,7 @@
 .logoHouse, .bicepLeft, .bicepRight {
     width: 100px;
     height: 100px;
+    margin: -24px 0 -12px 0;
 }
 
 .logoHouse {

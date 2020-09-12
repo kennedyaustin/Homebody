@@ -35,10 +35,10 @@ function ConfirmDeleteModal(props) {
             <Modal.Footer className="row d-flex justify-content-center text-center">
                 <div className="col-10 col-md-8 offset-1 offset-md-2 row">
                     <div className="col-6">
-                        <Button className="btn btn-danger" data-value={props.id} onClick={handleDelete}>Delete</Button>
+                        <Button className="btn btn-primary" onClick={props.onHide}>Close</Button>
                     </div>
                     <div className="col-6">
-                        <Button className="btn btn-primary" onClick={props.onHide}>Close</Button>
+                        <Button className="btn btn-danger" data-value={props.id} onClick={handleDelete}>Delete</Button>
                     </div>
                 </div>
             </Modal.Footer>

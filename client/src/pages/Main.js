@@ -9,6 +9,8 @@ import Profile from "../components/Profile/Profile";
 import Navbar from "../components/Navbar/Navbar.js";
 import BodyContext from "../utils/BodyContext";
 import WorkoutCard from "../components/WorkoutCard/WorkoutCard";
+import { CSSTransition, TransitionGroup} from 'react-transition-group';
+
 
 function Main() {
   const bodyContext = useContext(BodyContext);
@@ -20,12 +22,15 @@ function Main() {
   return (
     <>
       <Navbar />
-      <Switch>
-        <Route exact path="/home/profile" component={Profile} />
-        <Route exact path="/home/workout" component={WorkoutCard} />
-        <Route exact path="/home" component={Home} />
-        <Route path="*" component={() => "404 NOT FOUND"} />
-      </Switch>
+      <TransitionGroup>
+          <CSSTransition>
+            <Switch>
+              <Route exact path="/home/profile" component={Profile} />
+              <Route exact path="/home/workout" component={WorkoutCard} />
+              <Route exact path="/home" component={Home} />
+            </Switch>
+          </CSSTransition>
+      </TransitionGroup>
     </>
   );
 }

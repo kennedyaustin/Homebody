@@ -9,7 +9,7 @@ import { useHistory } from "react-router-dom";
 
 function SubmitButton() {
 
-    const { targets, setWorkout } = useContext(BodyContext);
+    const { targets, setWorkout, setTargets } = useContext(BodyContext);
     const [selectedState, updateSelected] = useState(false)
     const history = useHistory();
 
@@ -137,6 +137,10 @@ function SubmitButton() {
                 default:
                     console.log('Something went wrong.')
             }
+            setTargets({...targets, options: targets.options.map(option => {
+                option.selected = false;
+                return option;
+            })})
         })
     }
 

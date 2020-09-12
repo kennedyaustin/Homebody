@@ -17,7 +17,8 @@
     "react-router-dom": "^5.2.0",
     "react-router-last-location": "^2.0.1",
     "react-scripts": "3.4.3",
-    "react-social-login": "^3.4.9"
+    "react-social-login": "^3.4.9",
+    "react-transition-group": "^4.4.1"
   },
   "scripts": {
     "start": "react-scripts start",
