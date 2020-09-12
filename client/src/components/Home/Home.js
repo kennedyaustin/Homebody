@@ -9,11 +9,8 @@ const Home = () => {
 
   return (
     <>
-      <div className="container-fluid text-center">
-        <div className="row no-gutters d-flex justify-content-center">
-          <Instructions />
-        </div>
-      </div>
+         <Instructions />
+      
       <div className="container page">
         <div className="row">
           {bodyContext.targets.options.map((t) => (
