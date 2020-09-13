@@ -13,7 +13,6 @@ const workoutsSchema = new Schema({
     //creation date
     created: {
         type: Schema.Types.Date,
-        default: new Date()
     }
 
 })

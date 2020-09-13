@@ -1,4 +1,5 @@
 const db = require("../models/");
+const moment = require('moment')
 
 module.exports = {
 
@@ -18,7 +19,7 @@ module.exports = {
       .create({})
       .then(dbModel => 
         {
-          db.Workouts.updateOne({_id: dbModel._id}, {workout: req.body})
+          db.Workouts.updateOne({_id: dbModel._id}, {workout: req.body, created: moment()})
           .then(results => {
             db.Users.updateOne({_id: req.user._id}, {$push: {savedWorkouts: dbModel._id}}) 
             .then(r => res.json(r)) 
@@ -50,8 +51,8 @@ module.exports = {
   //remove a workout with a specific id
   remove: function(req, res) {
     db.Workouts
-      .findOneAndDelete({ _id: req.params.id })
-      .then(() => db.Users.findOneAndUpdate({ _id: req.user._id}, {$pull: { savedWorkouts: {$in: [ req.params.id ]}}})
+      .deleteOne({ _id: req.params.id })
+      .then(() => db.Users.updateOne({ _id: req.user._id}, {$pull: { savedWorkouts: {$in: [ req.params.id ]}}})
         .then(model => res.json(model.savedWorkouts))
       )
       .catch(err => res.status(422).json(err));

@@ -13,7 +13,7 @@ function WorkoutCard() {
   return (
     <>
       <Card
-        className="mt-5 col-12 col-sm-10 offset-sm-1 col-md-8 offset-md-2 col-lg-6 offset-lg-3 text-center page"
+        className="my-5 col-12 col-sm-10 offset-sm-1 col-md-8 offset-md-2 col-lg-6 offset-lg-3 text-center page"
         text="light"
         style={{ backgroundColor: "#1a1a1a" }}
       >
