@@ -23,19 +23,12 @@ function Main() {
   return (
     <>
       <Navbar />
-      <Route render={({location}) => (
-        <TransitionGroup>
-            <CSSTransition
-            key={location.key}
-            timeout={450}
-            classNames="fade">
-              <Switch location={location}>
+      <Route render={() => (
+              <Switch>
                 <Route exact path="/home/profile" component={Profile} />
                 <Route exact path="/home/workout" component={WorkoutCard} />
                 <Route exact path="/home" component={Home} />
               </Switch>
-            </CSSTransition>
-        </TransitionGroup>
       )} />
     </>
   );
