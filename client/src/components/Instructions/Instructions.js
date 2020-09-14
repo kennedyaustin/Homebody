@@ -2,6 +2,8 @@ import React, {useState} from "react";
 import { Accordion, Card, Button } from "react-bootstrap";
 import './style.css'
 
+/* Instructions show up on the home page telling the user how to use the site. Uses react-bootstrap accordion to make instructions hideable. */
+
 function Instructions() {
 
     const [ isClicked, setIsClicked ] = useState(false)
@@ -16,7 +18,7 @@ function Instructions() {
         </Card>
         <Card className="bg-dark text-light accordionButton">
             <Accordion.Toggle as={Button} className="m-0 p-0" onClick={() => setIsClicked(!isClicked)} variant="link" eventKey="0">
-              {isClicked ? <img className="arrowImg m-0 p-0" alt="Down arrow" src="/icons8-expand-arrow-80.png" /> : <img className="arrowImg m-0 p-0" alt= "Up arrow" src="/icons8-collapse-arrow-80.png" />}
+              {isClicked ? <img className="arrowImg m-0" alt="Down arrow" src="/down-arrow.png" /> : <img className="arrowImg m-0" alt= "Up arrow" src="/up-arrow.png" />}
             </Accordion.Toggle>
         </Card>
       </Accordion>

@@ -33,7 +33,7 @@ function ConfirmDeleteModal(props) {
                 </p>
             </Modal.Body>
             <Modal.Footer className="row d-flex justify-content-center text-center">
-                <div className="col-10 col-md-8 offset-1 offset-md-2 row">
+                <div className="col-10 col-md-8 offset-1 offset-md-2 row mt-2">
                     <div className="col-6">
                         <Button className="btn btn-primary" onClick={props.onHide}>Close</Button>
                     </div>

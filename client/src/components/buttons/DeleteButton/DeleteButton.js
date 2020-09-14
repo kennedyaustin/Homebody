@@ -6,11 +6,7 @@ const DeleteButton = ({id}) => {
 
     const [modalShow, setModalShow] = React.useState(false);
 
-    const handleClick = e => {
-        return (
-            setModalShow(true)
-        )
-    }
+    const handleClick = e => setModalShow(true)
 
     return (
         <>
@@ -19,7 +15,7 @@ const DeleteButton = ({id}) => {
             onHide={() => setModalShow(false)}
             id={id}
             />
-            <Button className="btn btn-danger btn-md ml-2" onClick={handleClick}>
+            <Button type="button" className="btn btn-danger btn-md ml-2" onClick={handleClick}>
                 Delete Workout
                 <img
                     className="mb-1 pl-1"
