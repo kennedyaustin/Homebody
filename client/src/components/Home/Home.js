@@ -4,7 +4,9 @@ import MuscleChoice from "../MuscleChoice/MuscleChoice";
 import SubmitButton from "../buttons/SubmitButton/SubmitButton";
 import Instructions from "../Instructions/Instructions";
 
-/* Instructions component displayed, MuscleCoice component is mapped over using the "targets" global hook from bodyContext. Once the user has made at least one choice, the submit button becomes clickable. While the submit button is disabled a tooltip is displayed. Look at the SubmitButton component for functionality around creating the workout based on the user's choices. */
+/* Instructions component displayed, MuscleCoice component is mapped over using the "targets" global hook from bodyContext. 
+Once the user has made at least one choice, the submit button becomes clickable. While the submit button is disabled a tooltip is displayed. 
+Look at the SubmitButton component for functionality around creating the workout based on the user's choices. */
 
 const Home = () => {
   const bodyContext = useContext(BodyContext);

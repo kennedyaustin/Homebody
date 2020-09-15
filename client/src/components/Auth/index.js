@@ -2,6 +2,9 @@ import React, { useContext, useEffect } from "react";
 import BodyContext from "../../utils/BodyContext";
 import API from "../../utils/API";
 
+/* Checks if user is logged in.
+Sets the user global hook. */
+
 const Auth = (props) => {
   const bodyContext = useContext(BodyContext);
 

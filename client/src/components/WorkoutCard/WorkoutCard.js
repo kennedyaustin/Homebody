@@ -4,12 +4,12 @@ import BodyContext from "../../utils/BodyContext";
 import NewWorkoutButton from "../buttons/NewWorkoutButton/NewWorkoutButton";
 import SaveButton from "../buttons/SaveButton/SaveButton";
 
+/* This component is loaded when the user has selected one or more muscle targets and clicks the SubmitButton. 
+Data from the workout global hook is mapped over to fill the card. */
+
 function WorkoutCard() {
   const { workout } = useContext(BodyContext);
 
-  // ----------
-  // When refreshed, workout disappears from the workout "Page"
-  // ----------
   return (
     <>
       <Card

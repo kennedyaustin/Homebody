@@ -6,23 +6,13 @@ import BodyContext from "../utils/BodyContext";
 import "./Login.css";
 import API from "../utils/API";
 
-/* Docs go here... */
+/* Upon loading the getUser API function is called. If user data exists the Main page is loaded. */
 
 const Login = () => {
   const bodyContext = useContext(BodyContext);
   const lastLocation = useLastLocation();
 
-  useEffect(() => {
-    API.getUser()
-    .then((resp) => {
-      if (resp.data) {
-        bodyContext.setAuth(true);
-        bodyContext.setUser(resp.data);
-      }
-    })
-    .catch(err => console.log(err))
-  }, []);
-
+  //if user is logged in, redirect to home page
   if (bodyContext.authState) {
     return <Redirect to={lastLocation ? lastLocation : "/home"} />;
   }

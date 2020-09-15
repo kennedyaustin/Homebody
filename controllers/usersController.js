@@ -36,6 +36,8 @@ module.exports = {
   },
 
   //----[api/users/currentUser]
+
+  //get current user
   getCurrentUser: function (req, res) {
     res.json(req.user);
   },
