@@ -1,6 +1,8 @@
 import React from 'react'
 import { Link } from "react-router-dom";
 
+/* Loads on both WorkoutCard and SavedWorkoutCard components.
+Allows user to create a new workout by sending them to the home page. */
 
 const NewWorkoutButton = () => {
     return (

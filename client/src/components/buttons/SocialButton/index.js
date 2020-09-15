@@ -1,6 +1,9 @@
 import React from "react";
 import API from "../../../utils/API";
 
+/* Loads on Login page.
+Allows user to choose either google or facebook to login. */
+
 const SocialButton = (props) => {
   const googleClick = () => {
     API.googleLogin();

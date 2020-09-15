@@ -6,6 +6,8 @@ import OverlayTrigger from 'react-bootstrap/OverlayTrigger';
 import Button from 'react-bootstrap/Button';
 import { useHistory } from "react-router-dom";
 
+/* Loads on the home page, disabled unless the user makes at least one selection.
+Generates workout based on user's selection. */
 
 function SubmitButton() {
 

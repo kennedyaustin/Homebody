@@ -4,7 +4,8 @@ import DeleteButton from '../buttons/DeleteButton/DeleteButton'
 import { Card } from "react-bootstrap";
 import dayjs from 'dayjs'
 
-/*  */
+/* This component is loaded into the profile page using the map method.
+Data is passed in as props and used to fill the card. */
 
 function SavedWorkoutCard({ id, date, exercises }) {
   return (

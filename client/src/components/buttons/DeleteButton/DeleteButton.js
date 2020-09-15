@@ -2,6 +2,10 @@ import React from 'react'
 import ConfirmDeleteModal from '../../ConfirmDeleteModal/ConfirmDeleteModal';
 import { Button } from 'react-bootstrap';
 
+/* Loads on SavedWorkoutCard component.
+Has workout id passed in as props.
+Passes workout id into ConfirmDeleteModal. */
+
 const DeleteButton = ({id}) => {
 
     const [modalShow, setModalShow] = React.useState(false);

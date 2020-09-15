@@ -1,6 +1,9 @@
 import React, { useContext } from "react";
 import BodyContext from "../../utils/BodyContext";
 import './style.css'
+
+/* this component is loaded on the Home page and gives the user a choice of which muscle group they would like to target: push, pull, legs, and core.  */
+
 const MuscleChoice = ({ target, value, selected }) => {
   const { targets, setTargets } = useContext(BodyContext);
   const handleButtonClick = event => {
