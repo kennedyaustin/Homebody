@@ -19,9 +19,11 @@ passport.serializeUser((user, done) => {
 
 //decrypt cookie, fetch user data, store in req.user
 passport.deserializeUser((id, done) => {
-  Users.findById(id).then((user) => {
+  Users.findById(id)
+  .then((user) => {
     done(null, user);
-  });
+  })
+  .catch(err => console.log(err))
 });
 
 //Google strategy

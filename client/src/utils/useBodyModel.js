@@ -28,7 +28,7 @@ const useBodyModel = () => {
 
   const [workout, setWorkout] = useState([]);
 
-  const [userWorkouts, setUserWorkouts] = useState([]);
+  const [userWorkouts, setUserWorkouts] = useState(null);
 
   return {
     authState,
