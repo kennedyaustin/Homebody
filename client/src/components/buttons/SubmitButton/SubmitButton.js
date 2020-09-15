@@ -142,6 +142,7 @@ function SubmitButton() {
                 return option;
             })})
         })
+        .catch(err => console.log(err))
     }
 
     return (

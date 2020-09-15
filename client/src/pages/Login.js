@@ -6,17 +6,21 @@ import BodyContext from "../utils/BodyContext";
 import "./Login.css";
 import API from "../utils/API";
 
+/* Docs go here... */
+
 const Login = () => {
   const bodyContext = useContext(BodyContext);
   const lastLocation = useLastLocation();
 
   useEffect(() => {
-    API.getUser().then((resp) => {
+    API.getUser()
+    .then((resp) => {
       if (resp.data) {
         bodyContext.setAuth(true);
         bodyContext.setUser(resp.data);
       }
-    });
+    })
+    .catch(err => console.log(err))
   }, []);
 
   if (bodyContext.authState) {
@@ -60,17 +64,6 @@ const Login = () => {
                 Sign in with Facebook
               </div>
             </SocialButton>
-
-            {/* <SocialButton
-          provider='github'
-          gatekeeper='https://gatekeeperreact.herokuapp.com'
-          appId='399ced5028cbcdf3a73e'
-          redirect='http://localhost:3000'
-          onLoginSuccess={handleSocialLogin}
-          onLoginFailure={handleSocialLoginFailure}
-          >
-        <i className="fa fa-github"></i> Sign in with <b>Github</b>
-        </SocialButton> */}
           </div>
         </div>
       </div>

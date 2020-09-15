@@ -5,7 +5,10 @@ import { Link, useHistory } from "react-router-dom";
 import { Navbar, Nav } from "react-bootstrap";
 import API from "../../utils/API";
 
-const Navbarhome = () => {
+/* Navbarhome displays the HomeBody logo and links to each page.
+Only displays after user is logged in. */
+
+const NavbarHome = () => {
   const { userState, setAuth } = useContext(BodyContext);
   const userName = userState.firstName ? userState.firstName : "Name";
   const profileImage = userState.profileImage
@@ -14,10 +17,12 @@ const Navbarhome = () => {
   const history = useHistory();
 
   const logout = () => {
-    API.logoutUser().then((resp) => {
+    API.logoutUser()
+    .then((resp) => {
       setAuth(false);
       history.push("/");
-    });
+    })
+    .catch(err => console.log(err))
   };
 
   return (
@@ -67,4 +72,4 @@ const Navbarhome = () => {
   );
 };
 
-export default Navbarhome;
+export default NavbarHome;

@@ -2,7 +2,8 @@ import React, {useState} from "react";
 import { Accordion, Card, Button } from "react-bootstrap";
 import './style.css'
 
-/* Instructions show up on the home page telling the user how to use the site. Uses react-bootstrap accordion to make instructions hideable. */
+/* Instructions show up on the home page telling the user how to use the site. 
+Uses react-bootstrap accordion to make instructions hideable. */
 
 function Instructions() {
 
